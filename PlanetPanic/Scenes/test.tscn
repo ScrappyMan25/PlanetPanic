@@ -11,3 +11,5 @@ current = true
 [node name="Sun" parent="." instance=ExtResource( 2 )]
 
 [node name="PlanetSystem" parent="." instance=ExtResource( 1 )]
+Speed = 1.0
+Radius = 299

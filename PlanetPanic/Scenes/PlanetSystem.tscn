@@ -5,7 +5,6 @@
 
 [node name="PlanetSystem" type="Node2D"]
 script = ExtResource( 1 )
-Speed = 2
 Radius = 100
 
 [node name="Planet" parent="." instance=ExtResource( 2 )]
