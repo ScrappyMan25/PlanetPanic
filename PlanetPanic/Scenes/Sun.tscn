@@ -12,7 +12,7 @@ animations = [ {
 } ]
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 45.6255
+radius = 28.9724
 
 [node name="Sun" type="Node2D"]
 script = ExtResource( 2 )
