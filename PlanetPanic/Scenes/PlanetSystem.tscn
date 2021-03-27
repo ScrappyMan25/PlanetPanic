@@ -9,3 +9,5 @@ Radius = 100
 
 [node name="Planet" parent="." instance=ExtResource( 2 )]
 [connection signal="area_entered" from="Planet" to="." method="_on_Planet_area_entered"]
+[connection signal="mouse_entered" from="Planet" to="." method="_on_Planet_mouse_entered"]
+[connection signal="mouse_exited" from="Planet" to="." method="_on_Planet_mouse_exited"]

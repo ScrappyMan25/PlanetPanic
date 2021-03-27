@@ -3,7 +3,7 @@ extends Node2D
 export (float) var Speed
 export (int) var Radius
 export (Vector2) var Center = Vector2(0.0, 0.0)
-
+var mouseInArea : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -21,7 +21,15 @@ func _draw() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	rotation += Speed/10 * delta
+#	if Input.is_action_pressed("ui_select"):
+	if mouseInArea && Input.is_action_pressed("ui_select"):
+		print(rad2deg(get_global_mouse_position().angle_to_point(position)))
+		rotate(get_global_mouse_position().angle_to_point(position))
+		pass
+	else:
+		print(rotation)
+		rotation += Speed/10 * delta
+		pass
 	pass
 
 # Func to draw circle
@@ -42,4 +50,14 @@ func _on_Planet_area_entered(_area: Area2D) -> void:
 	if "Asteroid" in _area.get_parent().name:
 		_area.get_parent().queue_free()
 		queue_free()
+	pass # Replace with function body.
+
+
+func _on_Planet_mouse_entered() -> void:
+	mouseInArea = true
+	pass # Replace with function body.
+
+
+func _on_Planet_mouse_exited() -> void:
+	mouseInArea = false
 	pass # Replace with function body.
