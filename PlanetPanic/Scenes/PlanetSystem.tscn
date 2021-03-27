@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/PlanetSystem.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Planet.tscn" type="PackedScene" id=2]
+
+[node name="PlanetSystem" type="Node2D"]
+script = ExtResource( 1 )
+Speed = 2
+Radius = 100
+
+[node name="Planet" parent="." instance=ExtResource( 2 )]
