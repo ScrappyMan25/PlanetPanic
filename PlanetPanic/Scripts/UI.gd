@@ -4,10 +4,12 @@ func _ready():
 	#get score from player
 	# update_score(get_node("../[ScriptLocation].ScoreFunction"))
 	set_visibility(false) #Set some visiblity to false at the start
+	update_score(0)
 	pass
 
 func update_score(score : int) -> void:
-	$Interface/Score.text = "SCORE: "+ score as String #Change the text of score lable
+	#Change the text of score lable
+	$Score.text = "SCORE: " + score as String
 	pass
 
 func set_visibility(is_visible):

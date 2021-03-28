@@ -4,10 +4,10 @@
 [ext_resource path="res://Assets/l_blue.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/UI.gd" type="Script" id=3]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 24
 font_data = ExtResource( 1 )
 
@@ -31,7 +31,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="Continue"]
 margin_right = 40.0
 margin_bottom = 14.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "Continue"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -44,7 +44,7 @@ margin_left = 30.0
 margin_top = -272.5
 margin_right = 274.0
 margin_bottom = -243.5
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Score: Numbers"
 __meta__ = {
 "_edit_use_anchors_": false

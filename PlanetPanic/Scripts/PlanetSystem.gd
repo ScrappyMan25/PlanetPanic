@@ -43,7 +43,6 @@ func draw_circle_arc(center, radius, angle_from, angle_to, color):
 
 
 func _on_Planet_area_entered(_area: Area2D) -> void:
-	print(_area.get_parent().name)
 	if "Asteroid" in _area.get_parent().name:
 		_area.get_parent().queue_free()
 		queue_free()
