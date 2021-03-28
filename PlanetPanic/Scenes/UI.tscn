@@ -25,6 +25,7 @@ __meta__ = {
 [node name="Score" type="Label" parent="Interface"]
 anchor_top = 0.5
 anchor_bottom = 0.5
+margin_left = 30.0
 margin_top = -272.5
 margin_right = 244.0
 margin_bottom = -243.5
