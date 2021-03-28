@@ -12,7 +12,7 @@ func update_score(score : int) -> void:
 
 func set_visibility(is_visible):
 	for node in get_children():#look for all child node and hide if its not in Interface
-		if node.name != "Interface":
+		if node.name != "Score" && node.name != "PauseButton":
 			node.visible = is_visible
 		pass
 	pass

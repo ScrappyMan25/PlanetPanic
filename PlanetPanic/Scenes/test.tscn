@@ -7,10 +7,10 @@
 
 [node name="test" type="Node"]
 
-[node name="UI" parent="." instance=ExtResource( 4 )]
-
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+
+[node name="UI" parent="Camera2D" instance=ExtResource( 4 )]
 
 [node name="AsteroidManager" parent="." instance=ExtResource( 3 )]
 
