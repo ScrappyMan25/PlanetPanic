@@ -21,10 +21,8 @@ func _draw() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-#	if Input.is_action_pressed("ui_select"):
 	if mouseInArea && Input.is_action_pressed("ui_select"):
-		print(rad2deg(get_global_mouse_position().angle_to_point(position)))
-		rotate(get_global_mouse_position().angle_to_point(position))
+		rotation = get_global_mouse_position().angle_to_point(position)
 		pass
 	else:
 		print(rotation)

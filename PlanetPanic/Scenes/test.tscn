@@ -15,3 +15,7 @@ current = true
 
 [node name="PlanetSystem" parent="." instance=ExtResource( 1 )]
 Speed = 1.513
+
+[node name="PlanetSystem2" parent="." instance=ExtResource( 1 )]
+Speed = 1.513
+Radius = 150
