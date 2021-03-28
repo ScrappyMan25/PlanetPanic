@@ -6,9 +6,9 @@ func _ready():
 	set_visibility(false)
 	pass
 
-#func update_score(score : int) -> void:
-#	$Interface/Score.text = "SCORE: "+ score as String
-#	pass
+func update_score(score : int) -> void:
+	$Interface/Score.text = "SCORE: "+ score as String
+	pass
 
 func set_visibility(is_visible):
 	for node in get_children():#look for all child node and hide if its not in Interface
