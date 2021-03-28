@@ -20,6 +20,10 @@ run/main_scene="res://Scenes/SplashScreen.tscn"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"
 
+[autoload]
+
+Pause="*res://Scenes/Pause.tscn"
+
 [display]
 
 window/size/height=576
