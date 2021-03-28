@@ -3,11 +3,11 @@ extends CanvasLayer
 func _ready():
 	#get score from player
 	# update_score(get_node("../[ScriptLocation].ScoreFunction"))
-	set_visibility(false)
+	set_visibility(false) #Set some visiblity to false at the start
 	pass
 
 func update_score(score : int) -> void:
-	$Interface/Score.text = "SCORE: "+ score as String
+	$Interface/Score.text = "SCORE: "+ score as String #Change the text of score lable
 	pass
 
 func set_visibility(is_visible):
@@ -17,12 +17,12 @@ func set_visibility(is_visible):
 		pass
 	pass
 
-func _on_PauseButton_pressed():
+func _on_PauseButton_pressed(): #When pause button is clicked. Pause everything and vice versa (like a on/off switch)
 	set_visibility(!get_tree().paused)
 	get_tree().paused = !get_tree().paused
 	pass
 
-func _on_Continue_pressed():
+func _on_Continue_pressed(): #Unpause everyting when the continue button is clicked
 	get_tree().paused = false
 	set_visibility(false)
 	pass 
