@@ -73,7 +73,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 flat = true
 script = ExtResource( 1 )
-scene_to_load = "res://Scenes/test.tscn"
+scene_to_load = "res://Scenes/Game_Scene.tscn"
 
 [node name="Label" type="Label" parent="MainMenu/CenterRow/Buttons/Play"]
 anchor_right = 1.0

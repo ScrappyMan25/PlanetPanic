@@ -25,7 +25,6 @@ func _process(delta: float) -> void:
 		rotation = get_global_mouse_position().angle_to_point(position)
 		pass
 	else:
-		print(rotation)
 		rotation += Speed/10 * delta
 		pass
 	pass
