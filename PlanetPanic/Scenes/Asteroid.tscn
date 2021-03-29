@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Assets/grey.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Asteroid.gd" type="Script" id=2]
+[ext_resource path="res://Assets/ParticleAssets/floaty_128.png" type="Texture" id=3]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -10,6 +11,13 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 } ]
+
+[sub_resource type="CanvasItemMaterial" id=3]
+blend_mode = 1
+particles_animation = true
+particles_anim_h_frames = 7
+particles_anim_v_frames = 7
+particles_anim_loop = false
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 8.70946
@@ -21,7 +29,22 @@ script = ExtResource( 2 )
 scale = Vector2( 0.277346, 0.277346 )
 frames = SubResource( 1 )
 
+[node name="CPUParticles2D" type="CPUParticles2D" parent="AnimatedSprite"]
+material = SubResource( 3 )
+position = Vector2( 0.225034, 0.0652771 )
+scale = Vector2( 3.6056, 3.6056 )
+speed_scale = 0.5
+texture = ExtResource( 3 )
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle = 510.0
+scale_amount = 0.5
+color = Color( 1, 0.34902, 0, 1 )
+anim_speed = 1.0
+anim_speed_random = 1.0
+
 [node name="AsteroidArea" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AsteroidArea"]
 shape = SubResource( 2 )
