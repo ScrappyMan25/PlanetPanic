@@ -2,6 +2,7 @@ extends Node
 
 var Score : int = 0
 var number_of_planets : int = 0
+var GameOverScene : PackedScene = preload("res://Scenes/GameOver.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:	
@@ -19,6 +20,10 @@ func UpdateScore() -> void:
 func GameOver() -> void:
 	print("GAME OVER!")
 	#GameOver
+	var err = get_tree().change_scene_to(GameOverScene)
+	if err != OK:
+		print(err)
+	queue_free()
 	pass
 
 func _on_planetDestroyed() -> void:
@@ -27,7 +32,7 @@ func _on_planetDestroyed() -> void:
 	number_of_planets -= 1
 	if number_of_planets == 0:
 		#gameOver
-		
+		GameOver()
 		pass
 	pass
 

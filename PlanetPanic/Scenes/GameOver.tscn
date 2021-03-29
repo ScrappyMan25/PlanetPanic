@@ -39,9 +39,8 @@ size_flags_vertical = 3
 custom_constants/separation = 3
 
 [node name="Restart" type="Button" parent="VBoxContainer/Buttons"]
-margin_left = -1.0
 margin_top = 133.0
-margin_right = 339.0
+margin_right = 340.0
 margin_bottom = 153.0
 rect_min_size = Vector2( 340, 0 )
 size_flags_horizontal = 4
@@ -63,9 +62,9 @@ __meta__ = {
 }
 
 [node name="Main" type="Button" parent="VBoxContainer/Buttons"]
-margin_left = 342.0
+margin_left = 343.0
 margin_top = 133.0
-margin_right = 682.0
+margin_right = 683.0
 margin_bottom = 153.0
 rect_min_size = Vector2( 340, 0 )
 size_flags_horizontal = 4
@@ -87,9 +86,9 @@ __meta__ = {
 }
 
 [node name="Exit" type="Button" parent="VBoxContainer/Buttons"]
-margin_left = 685.0
+margin_left = 686.0
 margin_top = 133.0
-margin_right = 1025.0
+margin_right = 1026.0
 margin_bottom = 153.0
 rect_min_size = Vector2( 340, 0 )
 size_flags_horizontal = 4
