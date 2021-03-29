@@ -32,6 +32,7 @@ func _on_Continue_pressed(): #Unpause everyting when the continue button is clic
 
 func _on_Exit_pressed():
 	get_tree().quit()
+	get_tree()
 	pass # Replace with function body.
 
 
