@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Space_background.png-ab52f356ad92359f46c2ebd7ce7eb657.stex"
+path="res://.import/Space_background.png-39aa6aa1ee92343dbf23d21ab7d2568d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Space_background.png"
-dest_files=[ "res://.import/Space_background.png-ab52f356ad92359f46c2ebd7ce7eb657.stex" ]
+source_file="res://Assets/Game_Assets/Space_background.png"
+dest_files=[ "res://.import/Space_background.png-39aa6aa1ee92343dbf23d21ab7d2568d.stex" ]
 
 [params]
 

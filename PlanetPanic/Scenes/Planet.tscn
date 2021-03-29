@@ -1,6 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Assets/planet1.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Game_Assets/planet1.png" type="Texture" id=1]
+
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {

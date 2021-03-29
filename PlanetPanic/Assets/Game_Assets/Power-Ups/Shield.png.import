@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Gear.png-83d9d5a18bf6d838bad83843d244f554.stex"
+path="res://.import/Shield.png-1c2e88a51cc32a9350aee4c7f339b8b9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Gear.png"
-dest_files=[ "res://.import/Gear.png-83d9d5a18bf6d838bad83843d244f554.stex" ]
+source_file="res://Assets/Game_Assets/Power-Ups/Shield.png"
+dest_files=[ "res://.import/Shield.png-1c2e88a51cc32a9350aee4c7f339b8b9.stex" ]
 
 [params]
 

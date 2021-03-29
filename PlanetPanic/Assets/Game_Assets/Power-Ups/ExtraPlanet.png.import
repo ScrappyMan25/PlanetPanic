@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Logo.png-95a3481791cd872ee4e9e0d7aa179c5c.stex"
+path="res://.import/ExtraPlanet.png-53f18ebbf8dabd5fa80cef453633211c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Logo.png"
-dest_files=[ "res://.import/Logo.png-95a3481791cd872ee4e9e0d7aa179c5c.stex" ]
+source_file="res://Assets/Game_Assets/Power-Ups/ExtraPlanet.png"
+dest_files=[ "res://.import/ExtraPlanet.png-53f18ebbf8dabd5fa80cef453633211c.stex" ]
 
 [params]
 

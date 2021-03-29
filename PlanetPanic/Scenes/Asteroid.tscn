@@ -1,8 +1,9 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Assets/asteroid.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Game_Assets/asteroid.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Asteroid.gd" type="Script" id=2]
 [ext_resource path="res://Assets/ParticleAssets/floaty_128.png" type="Texture" id=3]
+
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {

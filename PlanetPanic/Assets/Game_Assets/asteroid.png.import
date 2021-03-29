@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/sun-eat.png-aa391ae41bb804ffb496ab4f93be6bd3.stex"
+path="res://.import/asteroid.png-593571df8171e9a9c52d686a64b939bb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sun-eat.png"
-dest_files=[ "res://.import/sun-eat.png-aa391ae41bb804ffb496ab4f93be6bd3.stex" ]
+source_file="res://Assets/Game_Assets/asteroid.png"
+dest_files=[ "res://.import/asteroid.png-593571df8171e9a9c52d686a64b939bb.stex" ]
 
 [params]
 
