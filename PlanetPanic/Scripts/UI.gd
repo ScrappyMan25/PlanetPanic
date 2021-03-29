@@ -28,3 +28,15 @@ func _on_Continue_pressed(): #Unpause everyting when the continue button is clic
 	get_tree().paused = false
 	set_visibility(false)
 	pass 
+
+
+func _on_Exit_pressed():
+	get_tree().quit()
+	pass # Replace with function body.
+
+
+func _on_Restart_pressed():
+	get_tree().reload_current_scene()
+	get_tree().paused = false
+	set_visibility(false)
+	pass # Replace with function body.
