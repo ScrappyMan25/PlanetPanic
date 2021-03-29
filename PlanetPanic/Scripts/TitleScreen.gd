@@ -8,6 +8,7 @@ func _ready(): #Looks through all the button exist and load the scene when click
 
 #Load scene
 func _on_FadeIn_fade_finished(): 
+	queue_free()
 	get_tree().change_scene_to(scene_to_load)
 	pass
 
@@ -21,4 +22,5 @@ func _on_Play_pressed() -> void:
 #Quit Animation
 func _on_Quit_pressed() -> void:
 	#Wuman to add quit code here
+	get_tree().quit()
 	pass # Replace with function body.

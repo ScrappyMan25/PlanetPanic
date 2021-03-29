@@ -1,0 +1,112 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://pixel-emulator-font/PixelEmulator-xq08.ttf" type="DynamicFontData" id=1]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 1 )
+
+[node name="GameOver" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameOverLogo" type="TextureRect" parent="VBoxContainer"]
+margin_right = 1026.0
+margin_bottom = 286.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buttons" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 290.0
+margin_right = 1026.0
+margin_bottom = 576.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 3
+
+[node name="Restart" type="Button" parent="VBoxContainer/Buttons"]
+margin_left = -1.0
+margin_top = 133.0
+margin_right = 339.0
+margin_bottom = 153.0
+rect_min_size = Vector2( 340, 0 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+flat = true
+
+[node name="Label" type="Label" parent="VBoxContainer/Buttons/Restart"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -10.0
+margin_right = 85.0
+margin_bottom = 10.0
+rect_min_size = Vector2( 340, 0 )
+custom_fonts/font = SubResource( 1 )
+text = "Restart"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Main" type="Button" parent="VBoxContainer/Buttons"]
+margin_left = 342.0
+margin_top = 133.0
+margin_right = 682.0
+margin_bottom = 153.0
+rect_min_size = Vector2( 340, 0 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+flat = true
+
+[node name="Label" type="Label" parent="VBoxContainer/Buttons/Main"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -10.0
+margin_right = 85.0
+margin_bottom = 10.0
+rect_min_size = Vector2( 340, 0 )
+custom_fonts/font = SubResource( 1 )
+text = "Main Menu"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Exit" type="Button" parent="VBoxContainer/Buttons"]
+margin_left = 685.0
+margin_top = 133.0
+margin_right = 1025.0
+margin_bottom = 153.0
+rect_min_size = Vector2( 340, 0 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+flat = true
+
+[node name="Label" type="Label" parent="VBoxContainer/Buttons/Exit"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -10.0
+margin_right = 85.0
+margin_bottom = 10.0
+rect_min_size = Vector2( 340, 0 )
+custom_fonts/font = SubResource( 1 )
+text = "Exit"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
