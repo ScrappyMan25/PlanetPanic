@@ -16,6 +16,26 @@ func UpdateScore() -> void:
 	$UI.call_deferred("update_score", Score)
 	pass
 
+func GameOver() -> void:
+	print("GAME OVER!")
+	#GameOver
+	pass
+
+func _on_planetDestroyed() -> void:
+	#Update the planet counter for score multiplier
+	print("Planet Destroyed")
+	number_of_planets -= 1
+	if number_of_planets == 0:
+		#gameOver
+		
+		pass
+	pass
+
+func _on_planetAdded() -> void:
+	#Update the planet counter for score multiplier
+	
+	pass
+
 func _on_ScoreTimer_timeout() -> void:
 	Score += number_of_planets
 	$ScoreTimer.start()

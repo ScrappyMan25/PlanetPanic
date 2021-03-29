@@ -4,6 +4,7 @@ export (float) var Speed
 export (int) var Radius
 export (Vector2) var Center = Vector2(0.0, 0.0)
 var mouseInArea : bool = false
+signal planetDestroyed
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,6 +13,9 @@ func _ready() -> void:
 	
 	#Offset Along Orbit
 	rotation = rand_range(0.0, 360.0)
+	
+	#Connect Signals
+	connect("planetDestroyed", get_parent(), "_on_planetDestroyed")
 	pass # Replace with function body.
 
 func _draw() -> void:
@@ -45,6 +49,7 @@ func draw_circle_arc(center, radius, angle_from, angle_to, color):
 func _on_Planet_area_entered(_area: Area2D) -> void:
 	if "Asteroid" in _area.get_parent().name:
 		_area.get_parent().queue_free()
+		emit_signal("planetDestroyed")
 		queue_free()
 	pass # Replace with function body.
 

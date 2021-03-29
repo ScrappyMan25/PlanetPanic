@@ -27,5 +27,4 @@ func _set_properties(_speed: float, _destination : Vector2, _spawnLocation : Vec
 	pass
 
 func _on_AsteroidArea_area_entered(_area: Area2D) -> void:
-	print(_area.get_parent().name)
 	pass # Replace with function body.
