@@ -6,6 +6,23 @@ export (Vector2) var Center = Vector2(0.0, 0.0)
 var mouseInArea : bool = false
 signal planetDestroyed
 
+var default_Planet_Sprite : String
+#Parent Game Scene Ref
+var Game_Scene : Node
+
+var isSun : bool = false
+var isShield : bool = false
+
+#Interactables Key
+#	0	Asteroid,
+#	1	Double_Points,
+#	2	Extra_Planet,
+#	3	Mini_Sun,
+#	4	Screen_Wipe,
+#	5	Shield,
+#	6	Wishing_Star
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#Distance From Sun
@@ -14,8 +31,20 @@ func _ready() -> void:
 	#Offset Along Orbit
 	rotation = rand_range(0.0, 360.0)
 	
+	#Set GameScene
+	Game_Scene = get_parent()
+	
+	#TODO
+	#SetSprite / Animation Sprite
+	default_Planet_Sprite = "default"
+	$Planet/AnimatedSprite.play(default_Planet_Sprite)
+	$Planet/AnimatedSprite.scale = Vector2 (0.02, 0.02)
+	
+	
 	#Connect Signals
-	connect("planetDestroyed", get_parent(), "_on_planetDestroyed")
+	var err = connect("planetDestroyed", get_parent(), "_on_planetDestroyed")
+	if err:
+		print(err)
 	pass # Replace with function body.
 
 func _draw() -> void:
@@ -33,6 +62,74 @@ func _process(delta: float) -> void:
 		pass
 	pass
 
+# Func to Check Interactable Collision Type
+func checkCollisionType(I_Name : String) -> int:
+	#Asteroid
+	if "Asteroid" in I_Name:
+		return 0
+	#Double_Points
+	elif "Double_Points" in I_Name:
+		return 1
+	#Extra_Planet
+	elif "Extra_Planet" in I_Name:
+		return 2
+	#Mini_Sun
+	elif "Mini_Sun" in I_Name:
+		return 3
+	#Screen_Wipe
+	elif "Screen_Wipe" in I_Name:
+		return 4
+	#Shield
+	elif "Shield" in I_Name:
+		return 5
+	#Wishing_Star
+	elif "Wishing_Star" in I_Name:
+		return 6
+	return -1
+
+# Func to Implement PowerUps
+func PowerUp(type : int) -> void:
+# If Asteroid Do Nothing
+	match type:
+#	1	Double_Points,
+		1:
+			#StartPowerUp Timer- WaitTime 5 Seconds
+			$PowerUp_Timer.start()
+			#Set Score multiplier to 2
+			Game_Scene.set_deferred("ScoreMultiplier", 2)
+			# When Timer Expires set multiplier back to 1 - Handeled in Signal
+			pass
+#	2	Extra_Planet,
+		2:
+			#TODO
+			print("Extra Planet")
+			pass
+#	3	Mini_Sun,
+		3:
+			#StartPowerUp Timer- WaitTime 5 Seconds
+			$PowerUp_Timer.start()
+			#Set Sprite to Sun and Change porperty to TRUE 
+			$Planet/AnimatedSprite.scale = Vector2 (0.4, 0.4)
+			$Planet/AnimatedSprite.play("Mini_Sun")
+			isSun = true
+			pass
+#	4	Screen_Wipe,
+		4:
+			# Call game Scene to delete all Asteroids on Scene
+			Game_Scene.call_deferred("WipeAsteroids")
+			pass
+#	5	Shield,
+		5:
+			# Set property to true # TODO
+			isShield = true
+			pass
+#	6	Wishing_Star
+		6:
+			# Pause Scene And Open GUI To Select a Custom PowerUp. and then Run the Power up Func with that type Int
+			print("Shooting Star")
+			pass
+	pass
+
 # Func to draw circle
 func draw_circle_arc(center, radius, angle_from, angle_to, color):
 	var nb_points = 100
@@ -45,20 +142,73 @@ func draw_circle_arc(center, radius, angle_from, angle_to, color):
 	for index_point in range(nb_points):
 		draw_line(points_arc[index_point], points_arc[index_point + 1], color)
 
+#Signals
 
 func _on_Planet_area_entered(_area: Area2D) -> void:
-	if "Asteroid" in _area.get_parent().name:
-		_area.get_parent().queue_free()
-		emit_signal("planetDestroyed")
-		queue_free()
-	pass # Replace with function body.
-
+	var InteractableType : int = checkCollisionType(_area.get_parent().name)
+	
+	match InteractableType:
+		#Asteroid
+		0:
+			_area.get_parent().queue_free()
+			#If Shield PowerUp
+			if isShield:
+				pass
+			# If Sun PowerUp -> Call sunAsteroid Hit in Parent
+			elif isSun:
+				Game_Scene.call_deferred("_on_Sun_asteroid_hit")
+				pass
+			# Else Asteroid Hit Planet -> Planet go Boom Boom!
+			else:
+				emit_signal("planetDestroyed")
+				queue_free()
+		#Double_Points
+		1:
+			print(_area.get_parent().name)
+			_area.get_parent().queue_free()
+		#Extra_Planet
+		2:
+			print(_area.get_parent().name)
+			_area.get_parent().queue_free()
+		#Mini_Sun
+		3:
+			print(_area.get_parent().name)
+			_area.get_parent().queue_free()
+		#Screen_Wipe
+		4:
+			print(_area.get_parent().name)
+			_area.get_parent().queue_free()
+		#Shield
+		5:
+			print(_area.get_parent().name)
+			_area.get_parent().queue_free()
+		#Wishing_Star
+		6:
+			print(_area.get_parent().name)
+			_area.get_parent().queue_free()
+		#Unknown
+		_:
+			print("UNKNOWN OBJECT: " + _area.get_parent().name)
+			_area.get_parent().queue_free()
+	
+	#PowerUpImplementation
+	PowerUp(InteractableType)
+	pass
 
 func _on_Planet_mouse_entered() -> void:
 	mouseInArea = true
 	pass # Replace with function body.
 
-
 func _on_Planet_mouse_exited() -> void:
 	mouseInArea = false
+	pass # Replace with function body.
+
+func _on_PowerUp_Timer_timeout() -> void:
+	#PowerUp Expires
+	Game_Scene.set_deferred("ScoreMultiplier", 1)
+	isSun = false
+	isShield = false
+	$Planet/AnimatedSprite.play(default_Planet_Sprite)
+	$Planet/AnimatedSprite.scale = Vector2(0.02, 0.02)
+	
 	pass # Replace with function body.

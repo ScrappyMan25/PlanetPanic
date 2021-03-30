@@ -4,8 +4,10 @@ var Score : int = 0
 var number_of_planets : int = 0
 var GameOverScene : PackedScene = preload("res://Scenes/GameOver.tscn")
 
+var ScoreMultiplier : int = 1
+
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:	
+func _ready() -> void:
 	# Find number of Planets
 	for c in get_children():
 		if "PlanetSystem" in c.name:
@@ -26,9 +28,15 @@ func GameOver() -> void:
 	queue_free()
 	pass
 
+func WipeAsteroids() -> void:
+	$InteractableManager.call_deferred("AsteroidWipe")
+	pass
+
+# Signals
+
 func _on_planetDestroyed() -> void:
 	#Update the planet counter for score multiplier
-	print("Planet Destroyed")
+#	print("Planet Destroyed")
 	number_of_planets -= 1
 	if number_of_planets == 0:
 		#gameOver
@@ -42,12 +50,12 @@ func _on_planetAdded() -> void:
 	pass
 
 func _on_ScoreTimer_timeout() -> void:
-	Score += number_of_planets
+	Score += number_of_planets * ScoreMultiplier
 	$ScoreTimer.start()
 	UpdateScore()
 	pass # Replace with function body.
 
 func _on_Sun_asteroid_hit() -> void:
-	Score += 10
+	Score += 10 * ScoreMultiplier
 	UpdateScore()
 	pass # Replace with function body.

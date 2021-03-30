@@ -9,7 +9,9 @@ func _ready(): #Looks through all the button exist and load the scene when click
 #Load scene
 func _on_FadeIn_fade_finished(): 
 	queue_free()
-	get_tree().change_scene_to(scene_to_load)
+	var err = get_tree().change_scene_to(scene_to_load)
+	if err:
+		print(err)
 	pass
 
 #Play animation

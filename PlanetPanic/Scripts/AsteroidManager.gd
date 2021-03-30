@@ -1,6 +1,6 @@
 extends Node2D
 
-var Asteroid = preload("res://Scenes/Asteroid.tscn")
+var Asteroid = preload("res://Scenes/Interactables/Asteroid.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -6,12 +6,16 @@ func _ready():
 
 
 func _on_Restart_pressed():
-	get_tree().change_scene("res://Scenes/Game_Scene.tscn")
+	var err = get_tree().change_scene("res://Scenes/Game_Scene.tscn")
+	if err:
+		print(err)
 	pass # Replace with function body.
 
 
 func _on_Main_pressed() -> void:
-	get_tree().change_scene("res://Scenes/TitleScreen.tscn")
+	var err = get_tree().change_scene("res://Scenes/TitleScreen.tscn")
+	if err:
+		print(err)
 	pass # Replace with function body.
 
 

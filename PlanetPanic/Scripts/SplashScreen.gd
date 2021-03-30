@@ -6,5 +6,7 @@ func _ready():
 
 func _on_SplashImage_splash_finished(): #when animation is fnished. Hide the image and change the scene to TitleScreen scene
 	$SplashImage.hide()
-	get_tree().change_scene("res://Scenes/TitleScreen.tscn")
+	var err = get_tree().change_scene("res://Scenes/TitleScreen.tscn")
+	if err:
+		print(err)
 	pass
