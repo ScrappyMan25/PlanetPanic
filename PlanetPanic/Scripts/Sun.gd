@@ -16,6 +16,7 @@ func _on_Sun_Area_area_entered(_area: Area2D) -> void:
 	$AnimatedSprite.frame = 0
 	if "Asteroid" in _area.get_parent().name:
 		emit_signal("asteroid_hit")
+		$PlanetDestroy.play()
 	pass # Replace with function body.
 
 func _on_AnimatedSprite_animation_finished():

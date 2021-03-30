@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://pixel-emulator-font/PixelEmulator-xq08.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scripts/GameOver.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Game_Assets/Play Button.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Game_Assets/BackButton.png" type="Texture" id=4]
+[ext_resource path="res://Planet Panic SFX/Select.wav" type="AudioStream" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 1 )
@@ -89,5 +90,10 @@ align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Select" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -20.0
 [connection signal="pressed" from="VBoxContainer/Buttons/Restart" to="." method="_on_Restart_pressed"]
 [connection signal="pressed" from="VBoxContainer/Buttons/Main" to="." method="_on_Main_pressed"]
+[connection signal="finished" from="Select" to="." method="_on_Select_finished"]

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/High Score.wav-081397ed54e5f84e1fd51b18669e4542.sample"
+
+[deps]
+
+source_file="res://Planet Panic SFX/High Score.wav"
+dest_files=[ "res://.import/High Score.wav-081397ed54e5f84e1fd51b18669e4542.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -17,6 +17,7 @@ func _on_FadeIn_fade_finished():
 #Play animation
 func _on_Play_pressed() -> void:
 	scene_to_load = GameScene
+	$Select.play()
 	$FadeIn.show()
 	$FadeIn.fade_in()
 	pass # Replace with function body.

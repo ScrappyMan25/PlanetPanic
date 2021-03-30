@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://pixel-emulator-font/PixelEmulator-xq08.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Game_Assets/SettingsButton.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Assets/Game_Assets/Play Button.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Game_Assets/BackButton.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Game_Assets/RestartButton (1).png" type="Texture" id=6]
+[ext_resource path="res://Planet Panic SFX/Select.wav" type="AudioStream" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 1 )
@@ -111,7 +112,12 @@ texture_normal = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Select" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -21.0
 [connection signal="pressed" from="Button/Continue" to="." method="_on_Continue_pressed"]
 [connection signal="pressed" from="Button/Restart" to="." method="_on_Restart_pressed"]
 [connection signal="pressed" from="Button/MainMenu" to="." method="_on_MainMenu_pressed"]
 [connection signal="pressed" from="PauseButton" to="." method="_on_PauseButton_pressed"]
+[connection signal="finished" from="Select" to="." method="_on_Select_finished"]
