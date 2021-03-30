@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://pixel-emulator-font/PixelEmulator-xq08.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scripts/GameOver.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Game_Assets/Play Button.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Game_Assets/BackButton.png" type="Texture" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 1 )
@@ -24,7 +26,7 @@ __meta__ = {
 }
 
 [node name="GameOverLogo" type="TextureRect" parent="VBoxContainer"]
-margin_right = 1026.0
+margin_right = 1024.0
 margin_bottom = 286.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -34,22 +36,23 @@ __meta__ = {
 
 [node name="Buttons" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 290.0
-margin_right = 1026.0
+margin_right = 1024.0
 margin_bottom = 576.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 3
 
-[node name="Restart" type="Button" parent="VBoxContainer/Buttons"]
-margin_top = 133.0
-margin_right = 340.0
-margin_bottom = 153.0
-rect_min_size = Vector2( 340, 0 )
-size_flags_horizontal = 4
+[node name="Restart" type="TextureButton" parent="VBoxContainer/Buttons"]
+margin_left = 191.0
+margin_top = 118.0
+margin_right = 319.0
+margin_bottom = 167.0
+size_flags_horizontal = 6
 size_flags_vertical = 4
-flat = true
+texture_normal = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="VBoxContainer/Buttons/Restart"]
+visible = false
 anchor_top = 0.5
 anchor_bottom = 0.5
 margin_top = -10.0
@@ -63,17 +66,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Main" type="Button" parent="VBoxContainer/Buttons"]
-margin_left = 343.0
-margin_top = 133.0
-margin_right = 683.0
-margin_bottom = 153.0
-rect_min_size = Vector2( 340, 0 )
-size_flags_horizontal = 4
+[node name="Main" type="TextureButton" parent="VBoxContainer/Buttons"]
+margin_left = 704.0
+margin_top = 118.0
+margin_right = 832.0
+margin_bottom = 167.0
+size_flags_horizontal = 6
 size_flags_vertical = 4
-flat = true
+texture_normal = ExtResource( 4 )
 
 [node name="Label" type="Label" parent="VBoxContainer/Buttons/Main"]
+visible = false
 anchor_top = 0.5
 anchor_bottom = 0.5
 margin_top = -10.0
@@ -86,31 +89,5 @@ align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Exit" type="Button" parent="VBoxContainer/Buttons"]
-margin_left = 686.0
-margin_top = 133.0
-margin_right = 1026.0
-margin_bottom = 153.0
-rect_min_size = Vector2( 340, 0 )
-size_flags_horizontal = 4
-size_flags_vertical = 4
-flat = true
-
-[node name="Label" type="Label" parent="VBoxContainer/Buttons/Exit"]
-anchor_top = 0.5
-anchor_bottom = 0.5
-margin_top = -10.0
-margin_right = 85.0
-margin_bottom = 10.0
-rect_min_size = Vector2( 340, 0 )
-custom_fonts/font = SubResource( 1 )
-text = "Exit"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 [connection signal="pressed" from="VBoxContainer/Buttons/Restart" to="." method="_on_Restart_pressed"]
 [connection signal="pressed" from="VBoxContainer/Buttons/Main" to="." method="_on_Main_pressed"]
-[connection signal="pressed" from="VBoxContainer/Buttons/Exit" to="." method="_on_Exit_pressed"]

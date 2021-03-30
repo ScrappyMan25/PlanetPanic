@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://pixel-emulator-font/PixelEmulator-xq08.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://Assets/Game_Assets/Gear.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Game_Assets/SettingsButton.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/UI.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Game_Assets/Play Button.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Game_Assets/BackButton.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Game_Assets/RestartButton (1).png" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 1 )
@@ -20,26 +23,24 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -49.0
+margin_left = -64.0
 margin_top = -100.0
-margin_right = 49.0
+margin_right = 64.0
 margin_bottom = 100.0
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Continue" type="Button" parent="Button"]
-margin_top = 36.0
-margin_right = 98.0
-margin_bottom = 76.0
+[node name="Continue" type="TextureButton" parent="Button"]
+margin_top = 22.0
+margin_right = 128.0
+margin_bottom = 71.0
 rect_min_size = Vector2( 0, 40 )
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+texture_normal = ExtResource( 4 )
 
 [node name="Label" type="Label" parent="Button/Continue"]
+visible = false
 margin_right = 40.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 0, 40 )
@@ -51,17 +52,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Restart" type="Button" parent="Button"]
-margin_top = 80.0
-margin_right = 98.0
-margin_bottom = 120.0
+[node name="Restart" type="TextureButton" parent="Button"]
+margin_top = 75.0
+margin_right = 128.0
+margin_bottom = 124.0
 rect_min_size = Vector2( 0, 40 )
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+texture_normal = ExtResource( 6 )
 
 [node name="Label" type="Label" parent="Button/Restart"]
+visible = false
 margin_right = 40.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 98, 40 )
@@ -73,22 +72,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Exit" type="Button" parent="Button"]
-margin_top = 124.0
-margin_right = 98.0
-margin_bottom = 164.0
+[node name="MainMenu" type="TextureButton" parent="Button"]
+margin_top = 128.0
+margin_right = 128.0
+margin_bottom = 177.0
 rect_min_size = Vector2( 0, 40 )
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+texture_normal = ExtResource( 5 )
 
-[node name="Label" type="Label" parent="Button/Exit"]
+[node name="Label" type="Label" parent="Button/MainMenu"]
+visible = false
 margin_right = 40.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 98, 40 )
 custom_fonts/font = SubResource( 1 )
-text = "Exit"
+text = "Restart"
 align = 1
 valign = 1
 __meta__ = {
@@ -96,12 +93,8 @@ __meta__ = {
 }
 
 [node name="Score" type="Label" parent="."]
-anchor_top = 0.5
-anchor_bottom = 0.5
-margin_left = 30.0
-margin_top = -272.5
-margin_right = 274.0
-margin_bottom = -243.5
+margin_right = 244.0
+margin_bottom = 29.0
 custom_fonts/font = SubResource( 2 )
 text = "Score: Numbers"
 __meta__ = {
@@ -111,13 +104,14 @@ __meta__ = {
 [node name="PauseButton" type="TextureButton" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -64.0
-margin_bottom = 64.0
+margin_left = -128.0
+margin_top = -0.707108
+margin_bottom = 63.2929
 texture_normal = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="pressed" from="Button/Continue" to="." method="_on_Continue_pressed"]
 [connection signal="pressed" from="Button/Restart" to="." method="_on_Restart_pressed"]
-[connection signal="pressed" from="Button/Exit" to="." method="_on_Exit_pressed"]
+[connection signal="pressed" from="Button/MainMenu" to="." method="_on_MainMenu_pressed"]
 [connection signal="pressed" from="PauseButton" to="." method="_on_PauseButton_pressed"]
