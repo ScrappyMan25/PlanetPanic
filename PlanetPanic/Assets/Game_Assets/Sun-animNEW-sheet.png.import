@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/sun-eat.png-cf718e2f05190d733b8b2fce0ea2d41a.stex"
+path="res://.import/Sun-animNEW-sheet.png-3a791bf44152b50520d00d28433c67b2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Game_Assets/sun-eat.png"
-dest_files=[ "res://.import/sun-eat.png-cf718e2f05190d733b8b2fce0ea2d41a.stex" ]
+source_file="res://Assets/Game_Assets/Sun-animNEW-sheet.png"
+dest_files=[ "res://.import/Sun-animNEW-sheet.png-3a791bf44152b50520d00d28433c67b2.stex" ]
 
 [params]
 
