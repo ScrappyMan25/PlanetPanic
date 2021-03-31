@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Planet Panic SFX/Select.wav" type="AudioStream" id=1]
+[ext_resource path="res://Planet Panic SFX/Space MusicPaul.wav" type="AudioStream" id=2]
 [ext_resource path="res://Scripts/TitleScreen.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/FadeIn.gd" type="Script" id=4]
 [ext_resource path="res://Assets/Game_Assets/Play Button.png" type="Texture" id=5]
@@ -71,6 +72,9 @@ anims/fade_in = SubResource( 1 )
 [node name="Select" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
 volume_db = -20.0
+
+[node name="TitleScreenMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
 [connection signal="pressed" from="TextureButton/Play" to="." method="_on_Play_pressed"]
 [connection signal="fade_finished" from="FadeIn" to="." method="_on_FadeIn_fade_finished"]
 [connection signal="animation_finished" from="FadeIn/AnimationPlayer" to="FadeIn" method="_on_AnimationPlayer_animation_finished"]

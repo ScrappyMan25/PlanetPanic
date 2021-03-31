@@ -8,6 +8,7 @@ var ScoreMultiplier : int = 1
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Find number of Planets
+	$SoundScene/SpaceMusic.call_deferred("play")
 	for c in get_children():
 		if "PlanetSystem" in c.name:
 			number_of_planets += 1

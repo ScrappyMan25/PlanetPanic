@@ -4,6 +4,7 @@ var scene_to_load : PackedScene
 var GameScene : PackedScene = preload("res://Scenes/Game_Scene.tscn")
 
 func _ready(): #Looks through all the button exist and load the scene when clicked
+	$TitleScreenMusic.play()
 	pass # Replace with function body.
 
 #Load scene
