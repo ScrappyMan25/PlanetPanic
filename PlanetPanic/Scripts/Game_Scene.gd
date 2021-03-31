@@ -2,8 +2,6 @@ extends Node
 
 var Score : int = 0
 var number_of_planets : int = 0
-var GameOverScene : PackedScene = preload("res://Scenes/GameOver.tscn")
-var Gameover = false
 
 var ScoreMultiplier : int = 1
 
@@ -22,13 +20,10 @@ func UpdateScore() -> void:
 
 func GameOver() -> void:
 	print("GAME OVER!")
+	$UI.call_deferred("game_Over")
 	#GameOver
-	$GameOverSound.play()
-	Gameover = true
-#	var err = get_tree().change_scene_to(GameOverScene)
-#	if err != OK:
-#		print(err)
-#	queue_free()
+	$InteractableManager.queue_free()
+	$SoundScene/GameOver.call_deferred("play")
 	pass
 
 func WipeAsteroids() -> void:
@@ -49,7 +44,6 @@ func _on_planetDestroyed() -> void:
 
 func _on_planetAdded() -> void:
 	#Update the planet counter for score multiplier
-	
 	pass
 
 func _on_ScoreTimer_timeout() -> void:
@@ -61,14 +55,4 @@ func _on_ScoreTimer_timeout() -> void:
 func _on_Sun_asteroid_hit() -> void:
 	Score += 10 * ScoreMultiplier
 	UpdateScore()
-	pass # Replace with function body.
-
-
-func _on_GameOver_finished():
-	if Gameover == true:
-		var err = get_tree().change_scene_to(GameOverScene)
-		if err != OK:
-			print(err)
-		Gameover = false
-		queue_free()
 	pass # Replace with function body.

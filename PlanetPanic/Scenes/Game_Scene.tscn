@@ -7,7 +7,7 @@
 [ext_resource path="res://Scripts/Game_Scene.gd" type="Script" id=5]
 [ext_resource path="res://Assets/Game_Assets/Space_background.png" type="Texture" id=6]
 [ext_resource path="res://Assets/ParticleAssets/PNG (Transparent)/star_07.png" type="Texture" id=7]
-[ext_resource path="res://Planet Panic SFX/GameOver.wav" type="AudioStream" id=8]
+[ext_resource path="res://Scenes/SoundScene.tscn" type="PackedScene" id=9]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 blend_mode = 1
@@ -58,9 +58,8 @@ autostart = true
 
 [node name="InteractableManager" parent="." instance=ExtResource( 2 )]
 
-[node name="GameOverSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 8 )
-volume_db = -21.0
+[node name="SoundScene" parent="." instance=ExtResource( 9 )]
 [connection signal="asteroid_hit" from="Sun" to="." method="_on_Sun_asteroid_hit"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
-[connection signal="finished" from="GameOverSound" to="." method="_on_GameOver_finished"]
+
+[editable path="SoundScene"]

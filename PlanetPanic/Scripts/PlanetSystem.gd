@@ -5,10 +5,12 @@ export (int) var Radius
 export (Vector2) var Center = Vector2(0.0, 0.0)
 var mouseInArea : bool = false
 signal planetDestroyed
+var PlanetDestroySound = false
 
 var default_Planet_Sprite : String
 #Parent Game Scene Ref
 var Game_Scene : Node
+var SoundScene : Node
 
 var isSun : bool = false
 var isShield : bool = false
@@ -33,6 +35,7 @@ func _ready() -> void:
 	
 	#Set GameScene
 	Game_Scene = get_parent()
+	SoundScene = Game_Scene.get_node("SoundScene")
 	
 	#TODO
 	#SetSprite / Animation Sprite
@@ -160,6 +163,7 @@ func _on_Planet_area_entered(_area: Area2D) -> void:
 				pass
 			# Else Asteroid Hit Planet -> Planet go Boom Boom!
 			else:
+				SoundScene.get_node("PlanetDestroy").call_deferred("play")
 				emit_signal("planetDestroyed")
 				queue_free()
 		#Double_Points
@@ -210,5 +214,4 @@ func _on_PowerUp_Timer_timeout() -> void:
 	isShield = false
 	$Planet/AnimatedSprite.play(default_Planet_Sprite)
 	$Planet/AnimatedSprite.scale = Vector2(0.02, 0.02)
-	
 	pass # Replace with function body.

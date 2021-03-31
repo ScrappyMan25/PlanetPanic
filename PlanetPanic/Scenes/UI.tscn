@@ -6,13 +6,16 @@
 [ext_resource path="res://Assets/Game_Assets/Play Button.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Game_Assets/BackButton.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Game_Assets/RestartButton (1).png" type="Texture" id=6]
-[ext_resource path="res://Planet Panic SFX/Select.wav" type="AudioStream" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 24
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
 font_data = ExtResource( 1 )
 
 [node name="UI" type="CanvasLayer"]
@@ -113,11 +116,84 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Select" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 7 )
-volume_db = -21.0
+[node name="Game_Over_Restart" type="TextureButton" parent="."]
+anchor_left = 0.151
+anchor_top = 0.5
+anchor_right = 0.151
+anchor_bottom = 0.5
+margin_top = -24.5
+margin_right = 128.0
+margin_bottom = 24.5
+rect_min_size = Vector2( 0, 40 )
+texture_normal = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Game_Over_Restart"]
+visible = false
+margin_right = 40.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 98, 40 )
+custom_fonts/font = SubResource( 1 )
+text = "Restart"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Game_Over_MainMenu" type="TextureButton" parent="."]
+anchor_left = 0.849
+anchor_top = 0.5
+anchor_right = 0.849
+anchor_bottom = 0.5
+margin_left = -128.0
+margin_top = -24.5
+margin_bottom = 24.5
+rect_min_size = Vector2( 0, 40 )
+texture_normal = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Game_Over_MainMenu"]
+visible = false
+margin_right = 40.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 98, 40 )
+custom_fonts/font = SubResource( 1 )
+text = "Restart"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Game_Over_Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -145.5
+margin_right = 512.0
+margin_bottom = 145.5
+custom_fonts/font = SubResource( 3 )
+text = "GAME OVER
+
+
+
+
+
+"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="Button/Continue" to="." method="_on_Continue_pressed"]
 [connection signal="pressed" from="Button/Restart" to="." method="_on_Restart_pressed"]
 [connection signal="pressed" from="Button/MainMenu" to="." method="_on_MainMenu_pressed"]
 [connection signal="pressed" from="PauseButton" to="." method="_on_PauseButton_pressed"]
-[connection signal="finished" from="Select" to="." method="_on_Select_finished"]
+[connection signal="pressed" from="Game_Over_Restart" to="." method="_on_Restart_pressed"]
+[connection signal="pressed" from="Game_Over_MainMenu" to="." method="_on_MainMenu_pressed"]
