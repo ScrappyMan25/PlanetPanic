@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 var SoundScene : Node
+var PlanetReference : Node2D
 
 func _ready():
 	SoundScene = get_parent().get_node("SoundScene")
@@ -13,6 +14,9 @@ func _ready():
 			c.hide()
 			pass
 		pass
+	
+	$WishingStar.hide()
+	
 	pass
 
 func update_score(score : int) -> void:
@@ -27,6 +31,18 @@ func set_visibility(is_visible):
 		pass
 	pass
 
+func ShootingStarUI(planetRef : Node2D) -> void:
+	get_tree().paused = true
+	$WishingStar.show()
+	PlanetReference = planetRef
+	pass
+
+func PowerUpSelected(_powerUp : int) -> void:
+	$WishingStar.hide()
+	get_tree().paused = false
+	PlanetReference.call_deferred("PowerUp", _powerUp)
+	pass
+
 func game_Over():
 	for c in get_children():
 		if "Game_Over_" in c.name:
@@ -36,15 +52,19 @@ func game_Over():
 	$PauseButton.hide()
 	pass
 
+#Signals
+
 func _on_PauseButton_pressed(): #When pause button is clicked. Pause everything and vice versa (like a on/off switch)
 	SoundScene.get_node("Select").play()
-	set_visibility(!get_tree().paused)
-	get_tree().paused = !get_tree().paused
+	set_visibility(true)
+	$PauseButton.hide()
+	get_tree().paused = true
 	pass
 
 func _on_Continue_pressed(): #Unpause everyting when the continue button is clicked
+	$PauseButton.show()
 	SoundScene.get_node("Select").play()
-	get_tree().paused = false	
+	get_tree().paused = false
 	set_visibility(false)
 	pass
 
@@ -64,4 +84,19 @@ func _on_MainMenu_pressed():
 		print(err)
 	get_tree().paused = false
 	set_visibility(false)
+	pass # Replace with function body.
+
+
+func _on_ExtraPlanetWish_pressed() -> void:
+	PowerUpSelected(2)
+	pass # Replace with function body.
+
+
+func _on_ShieldWish_pressed() -> void:
+	PowerUpSelected(5)
+	pass # Replace with function body.
+
+
+func _on_DoublePointsWish_pressed() -> void:
+	PowerUpSelected(1)
 	pass # Replace with function body.

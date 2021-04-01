@@ -20,8 +20,6 @@ func _ready() -> void:
 	#Keys of Dict Interactables (-Asteroids) so as to randomise the Spawns
 	PowerUp_Keys = Interactables.keys()
 	PowerUp_Keys.remove(0)
-	for i in PowerUp_Keys:
-		print(i)
 	pass # Replace with function body.
 
 
@@ -36,13 +34,12 @@ func spawn_Asteroid() -> void:
 	pass
 
 func spawn_PowerUp() -> void:
-	print("PowerUp")
 	#Randomise PowerUps
 	PowerUp_Keys.shuffle()
 	
 	var PowerUp = Interactables.get(PowerUp_Keys[0]).instance()
 	var a_speed = 150.0
-	var a_location = Vector2(rand_range(-1,1), rand_range(-1,1)).normalized() * 600
+	var a_location = Vector2(rand_range(-1,1), rand_range(-1,1)).normalized() * 600 * get_parent().get_node("Camera2D").zoom.x
 	var a_destination = position
 	PowerUp._set_properties(a_speed, a_destination, a_location)
 	add_child(PowerUp, true)

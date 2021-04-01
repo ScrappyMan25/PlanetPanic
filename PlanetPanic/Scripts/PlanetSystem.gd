@@ -15,6 +15,11 @@ var SoundScene : Node
 var isSun : bool = false
 var isShield : bool = false
 
+var rotation_direction = [
+	-1,
+	1
+]
+
 #Interactables Key
 #	0	Asteroid,
 #	1	Double_Points,
@@ -23,7 +28,6 @@ var isShield : bool = false
 #	4	Screen_Wipe,
 #	5	Shield,
 #	6	Wishing_Star
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -34,6 +38,11 @@ func _ready() -> void:
 	#Offset Along Orbit
 	rotation = rand_range(0.0, 360.0)
 	
+	#Choose Rotation Direction
+	rotation_direction.shuffle()
+	rotation_direction.pop_back()
+	rotation_direction = rotation_direction[0]
+	
 	#Set GameScene
 	Game_Scene = get_parent()
 	SoundScene = Game_Scene.get_node("SoundScene")
@@ -42,7 +51,6 @@ func _ready() -> void:
 	#SetSprite / Animation Sprite
 	default_Planet_Sprite = (randi() % 8) as String
 	$Planet/AnimatedSprite.play(default_Planet_Sprite)
-	
 	
 	#Connect Signals
 	var err = connect("planetDestroyed", get_parent(), "_on_planetDestroyed")
@@ -57,11 +65,21 @@ func _draw() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if mouseInArea && Input.is_action_pressed("ui_select"):
+#	if mouseInArea && Input.is_action_pressed("ui_select"):
+	if mouseInArea && Input.M:
 		rotation = get_global_mouse_position().angle_to_point(position)
 		pass
 	else:
-		rotation += Speed/10 * delta
+		rotation += Speed/10 * delta * rotation_direction
+		pass
+	pass
+
+func _input(event: InputEvent) -> void:
+	if (event is InputEventMouseButton ):
+		
+		pass
+	if (event is InputEventMouseMotion):
+		
 		pass
 	pass
 
@@ -128,8 +146,10 @@ func PowerUp(type : int) -> void:
 #	6	Wishing_Star
 		6:
 			# Pause Scene And Open GUI To Select a Custom PowerUp. and then Run the Power up Func with that type Int
-			print("Shooting Star")
+			Game_Scene.get_node("UI").call_deferred("ShootingStarUI", self)
 			pass
+	#PlayPowerUpSoundHere
+	
 	pass
 
 # Func to draw circle
@@ -165,33 +185,9 @@ func _on_Planet_area_entered(_area: Area2D) -> void:
 				SoundScene.get_node("PlanetDestroy").call_deferred("play")
 				emit_signal("planetDestroyed", Radius)
 				queue_free()
-		#Double_Points
-		1:
-			print(_area.get_parent().name)
-			_area.get_parent().queue_free()
-		#Extra_Planet
-		2:
-			print(_area.get_parent().name)
-			_area.get_parent().queue_free()
-		#Mini_Sun
-		3:
-			print(_area.get_parent().name)
-			_area.get_parent().queue_free()
-		#Screen_Wipe
-		4:
-			print(_area.get_parent().name)
-			_area.get_parent().queue_free()
-		#Shield
-		5:
-			print(_area.get_parent().name)
-			_area.get_parent().queue_free()
-		#Wishing_Star
-		6:
-			print(_area.get_parent().name)
-			_area.get_parent().queue_free()
-		#Unknown
+		#If not an Ansteroid 
 		_:
-			print("UNKNOWN OBJECT: " + _area.get_parent().name)
+#			print("UNKNOWN OBJECT: " + _area.get_parent().name)
 			_area.get_parent().queue_free()
 	
 	#PowerUpImplementation

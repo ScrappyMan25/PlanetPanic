@@ -69,16 +69,27 @@ func Add_Planet() -> void:
 	add_child(p, true)
 	#Camera Adjustment
 	#TODO
+	adjust_Camera_zoom()
+	pass
+
+func adjust_Camera_zoom():
+	if PlanetExists.find_last(true) > 3:
+		var zoom_value : float = 1 + 0.10 * (PlanetExists.find_last(true) - 3)
+		$Camera2D.zoom = Vector2(zoom_value, zoom_value)
+		pass
+	else:
+		$Camera2D.zoom = Vector2(1, 1)
+		pass
 	pass
 
 # Signals
 
 func _on_planetDestroyed(_Radius : int) -> void:
 	#Update the planet counter for score multiplier
-#	print("Planet Destroyed")
 	$Sun/AnimatedSprite.play("Sun_Sad")
 	PlanetExists[PlanetRadius.find(_Radius)] = false
 	number_of_planets -= 1
+	adjust_Camera_zoom()
 	if number_of_planets == 0:
 		#gameOver
 		GameOver()

@@ -219,7 +219,7 @@ margin_right = 118.0
 margin_bottom = 49.0
 texture_normal = ExtResource( 7 )
 
-[node name="x2Wish" type="TextureButton" parent="WishingStar"]
+[node name="DoublePointsWish" type="TextureButton" parent="WishingStar"]
 margin_left = 122.0
 margin_right = 179.0
 margin_bottom = 49.0
@@ -230,3 +230,6 @@ texture_normal = ExtResource( 9 )
 [connection signal="pressed" from="PauseButton" to="." method="_on_PauseButton_pressed"]
 [connection signal="pressed" from="Game_Over_Restart" to="." method="_on_Restart_pressed"]
 [connection signal="pressed" from="Game_Over_MainMenu" to="." method="_on_MainMenu_pressed"]
+[connection signal="pressed" from="WishingStar/ExtraPlanetWish" to="." method="_on_ExtraPlanetWish_pressed"]
+[connection signal="pressed" from="WishingStar/ShieldWish" to="." method="_on_ShieldWish_pressed"]
+[connection signal="pressed" from="WishingStar/DoublePointsWish" to="." method="_on_DoublePointsWish_pressed"]
