@@ -40,10 +40,10 @@ func _set_properties(_speed: float, _destination : Vector2, _spawnLocation : Vec
 	
 	#Particle Rotation
 	if "Asteroid" in name:
-		var angleTo : float = 0.0
+		var angle : float = _spawnLocation.angle_to_point(_destination)
 		#spawnLocation | Destination | Direction
 #		angleTo = position.angle_to(_destination)
-		$AnimatedSprite/CPUParticles2D.rotate(_spawnLocation.angle_to_point(_destination))
+		$AnimatedSprite/CPUParticles2D.rotate(angle)
 	pass
 
 

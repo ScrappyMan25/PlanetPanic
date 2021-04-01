@@ -18,7 +18,7 @@ radius = 18.1388
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-scale = Vector2( 0.5, 0.5 )
+scale = Vector2( 0.744506, 0.744506 )
 frames = SubResource( 1 )
 
 [node name="Double_Points_Area" type="Area2D" parent="."]

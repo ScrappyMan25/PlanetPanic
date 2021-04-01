@@ -101,3 +101,7 @@ func _on_SoundScene_GameOver() -> void:
 	#GameOver
 	
 	pass # Replace with function body.
+
+func _on_SpaceMusic_finished() -> void:
+	$SoundScene/SpaceMusic.play()
+	pass # Replace with function body.
