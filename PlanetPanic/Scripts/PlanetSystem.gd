@@ -72,14 +72,17 @@ func _draw() -> void:
 func _process(delta: float) -> void:
 	if !control:
 		rotation += Speed/10 * delta * rotation_direction
+	else:
+		control = Input.is_mouse_button_pressed(1)
 		pass
 	pass
 
 func _input(event: InputEvent) -> void:
-	if (event is InputEventMouseButton ) && (mouseInArea || control):
+	if (event is InputEventMouseButton) && (mouseInArea):
 		control = event.is_pressed()
 		pass
-	elif (event is InputEventScreenTouch) && (mouseInArea || control):
+	elif (event is InputEventScreenTouch) && (mouseInArea):
+		var _input = event.position - (get_viewport_rect().size/2)
 		control =  event.is_pressed()
 		pass
 	elif (event is InputEventScreenDrag) && control:
@@ -239,4 +242,10 @@ func _on_PowerUp_Timer_timeout() -> void:
 	isShield = false
 	$Planet/AnimatedSprite.play(default_Planet_Sprite)
 	$Planet/AnimatedSprite.scale = Vector2(1, 1)
+	pass # Replace with function body.
+
+
+func _on_Planet_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+	if event is InputEventScreenTouch:# || event is InputEventMouseButton:
+		control = true
 	pass # Replace with function body.

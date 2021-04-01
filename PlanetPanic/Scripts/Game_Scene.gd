@@ -28,8 +28,8 @@ func _ready() -> void:
 			c.get_node("Planet").position.x = c.Radius
 			number_of_planets += 1
 			pass
-	for i in 3:
-		Add_Planet()
+#	for i in 3:
+#		Add_Planet()
 	pass # Replace with function body.
 
 func UpdateScore() -> void:
@@ -69,7 +69,7 @@ func Add_Planet() -> void:
 		PlanetExists[i] = true
 		pass
 	number_of_planets += 1
-	add_child(p, true)
+	call_deferred("add_child", p, true)
 	#Camera Adjustment
 	adjust_Camera_zoom()
 	pass
@@ -82,6 +82,11 @@ func adjust_Camera_zoom():
 	else:
 		$Camera2D.zoom = Vector2(1, 1)
 		pass
+	pass
+
+func addScore(s : int):
+	Score += s * ScoreMultiplier
+	UpdateScore()
 	pass
 
 # Signals

@@ -52,6 +52,7 @@ func AsteroidWipe() -> void:
 	for i in get_children():
 		if "Asteroid" in i.name && !("_Spawn_Timer") in i.name:
 			i.queue_free()
+			get_parent().call_deferred("_on_Sun_asteroid_hit")
 	pass
 
 #Signals

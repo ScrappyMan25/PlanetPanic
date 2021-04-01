@@ -31,13 +31,11 @@ func _connectAreaSignal() -> void:
 func _process(delta: float) -> void:
 	#move towards the center
 	position += Direction * Speed * delta
-	pass
-
-func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton && MouseInArea && "Asteroid" in name:
-		if !event.is_pressed():
-			get_parent().get_parent().get_node("Sun").call_deferred("FireBall", position)
+	
+	if MouseInArea && "Asteroid" in name && Input.is_action_just_pressed("ui_select"):
+		get_parent().get_parent().get_node("Sun").call_deferred("FireBall", position)
 		pass
+	
 	pass
 
 #Properties when instances by Manager
@@ -62,9 +60,11 @@ func _set_properties(_speed: float, _destination : Vector2, _spawnLocation : Vec
 	pass
 
 func _on_Interactable_area_entered(_area: Area2D) -> void:
-	if "Asteroid" in _area.get_parent().name:
+	if "FireBall" in _area.get_parent().name && "Asteroid" in name:
 		#FireBall
-		
+		get_parent().get_parent().call_deferred("addScore", 50)
+		queue_free()
+		_area.get_parent().queue_free()
 		pass
 	pass # Replace with function body.
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://pixel-emulator-font/PixelEmulator-xq08.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Game_Assets/SettingsButton.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Assets/Game_Assets/WishUI/ShieldWish.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Game_Assets/WishUI/ExtraPlanetWish.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Game_Assets/WishUI/x2Wish.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Game_Assets/SunMeter/0.png" type="Texture" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 1 )
@@ -224,6 +225,19 @@ margin_left = 122.0
 margin_right = 179.0
 margin_bottom = 49.0
 texture_normal = ExtResource( 9 )
+
+[node name="SunMeter" type="TextureRect" parent="."]
+anchor_left = 0.903
+anchor_top = 0.323
+anchor_right = 0.903
+anchor_bottom = 0.323
+margin_right = 40.0
+margin_bottom = 40.0
+rect_scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="Button/Continue" to="." method="_on_Continue_pressed"]
 [connection signal="pressed" from="Button/Restart" to="." method="_on_Restart_pressed"]
 [connection signal="pressed" from="Button/MainMenu" to="." method="_on_MainMenu_pressed"]
