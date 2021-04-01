@@ -6,8 +6,10 @@ export (Vector2) var Center = Vector2(0.0, 0.0)
 var mouseInArea : bool = false
 signal planetDestroyed
 var PlanetDestroySound = false
-
 var default_Planet_Sprite
+
+var control : bool = false
+
 #Parent Game Scene Ref
 var Game_Scene : Node
 var SoundScene : Node
@@ -66,8 +68,9 @@ func _draw() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 #	if mouseInArea && Input.is_action_pressed("ui_select"):
-	if mouseInArea && Input.M:
-		rotation = get_global_mouse_position().angle_to_point(position)
+#	if mouseInArea && Input.M:
+#		rotation = get_global_mouse_position().angle_to_point(position)
+	if control:
 		pass
 	else:
 		rotation += Speed/10 * delta * rotation_direction
@@ -75,11 +78,19 @@ func _process(delta: float) -> void:
 	pass
 
 func _input(event: InputEvent) -> void:
-	if (event is InputEventMouseButton ):
-		
+	if (event is InputEventMouseButton ) && (mouseInArea || control):
+		control = event.is_pressed()
 		pass
-	if (event is InputEventMouseMotion):
-		
+	elif (event is InputEventScreenTouch) && (mouseInArea || control):
+		control =  event.is_pressed()
+		pass
+	elif (event is InputEventScreenDrag) && control:
+		var input = event.position - (get_viewport_rect().size /2)
+		rotation = input.angle_to_point(global_position)
+		pass
+	elif (event is InputEventMouseMotion) && control:
+		var input = event.position - (get_viewport_rect().size /2)
+		rotation = input.angle_to_point(position)
 		pass
 	pass
 
