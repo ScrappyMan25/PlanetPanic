@@ -39,11 +39,11 @@ func _set_properties(_speed: float, _destination : Vector2, _spawnLocation : Vec
 	$RayCast2D.cast_to = _destination
 	
 	#Particle Rotation
-#	if "Asteroid" in name:
-#		var angleTo : float = 0.0
-#		#spawnLocation | Destination | Direction
+	if "Asteroid" in name:
+		var angleTo : float = 0.0
+		#spawnLocation | Destination | Direction
 #		angleTo = position.angle_to(_destination)
-#		$AnimatedSprite/CPUParticles2D.rotate(angleTo)
+		$AnimatedSprite/CPUParticles2D.rotate(_spawnLocation.angle_to_point(_destination))
 	pass
 
 
