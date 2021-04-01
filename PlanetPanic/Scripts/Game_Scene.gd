@@ -27,8 +27,6 @@ func _ready() -> void:
 			c.get_node("Planet").position.x = c.Radius
 			number_of_planets += 1
 			pass
-	for i in 3:
-		Add_Planet()
 	pass # Replace with function body.
 
 func UpdateScore() -> void:
