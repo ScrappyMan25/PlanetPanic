@@ -31,6 +31,7 @@ frames = SubResource( 1 )
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="AnimatedSprite"]
 material = SubResource( 2 )
+rotation = 4.71239
 scale = Vector2( 50, 50 )
 speed_scale = 0.5
 texture = ExtResource( 3 )
@@ -38,7 +39,7 @@ emission_shape = 1
 emission_sphere_radius = 1.0
 angle = 510.0
 scale_amount = 0.5
-color = Color( 1, 0.34902, 0, 1 )
+color = Color( 0.913725, 0.513726, 0.219608, 1 )
 anim_speed = 1.0
 anim_speed_random = 1.0
 

@@ -8,4 +8,3 @@ func _ready() -> void:
 	#Connect Signal
 	_connectAreaSignal()
 	pass # Replace with function body.
-
