@@ -7,7 +7,7 @@ var mouseInArea : bool = false
 signal planetDestroyed
 var PlanetDestroySound = false
 
-var default_Planet_Sprite : String
+var default_Planet_Sprite
 #Parent Game Scene Ref
 var Game_Scene : Node
 var SoundScene : Node
@@ -27,6 +27,7 @@ var isShield : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	randomize()
 	#Distance From Sun
 	$Planet.position.x = Radius
 	
@@ -39,9 +40,8 @@ func _ready() -> void:
 	
 	#TODO
 	#SetSprite / Animation Sprite
-	default_Planet_Sprite = "default"
+	default_Planet_Sprite = (randi() % 8) as String
 	$Planet/AnimatedSprite.play(default_Planet_Sprite)
-	$Planet/AnimatedSprite.scale = Vector2 (0.02, 0.02)
 	
 	
 	#Connect Signals
@@ -104,8 +104,7 @@ func PowerUp(type : int) -> void:
 			pass
 #	2	Extra_Planet,
 		2:
-			#TODO
-			print("Extra Planet")
+			Game_Scene.call_deferred("Add_Planet")
 			pass
 #	3	Mini_Sun,
 		3:
@@ -164,7 +163,7 @@ func _on_Planet_area_entered(_area: Area2D) -> void:
 			# Else Asteroid Hit Planet -> Planet go Boom Boom!
 			else:
 				SoundScene.get_node("PlanetDestroy").call_deferred("play")
-				emit_signal("planetDestroyed")
+				emit_signal("planetDestroyed", Radius)
 				queue_free()
 		#Double_Points
 		1:
@@ -213,5 +212,5 @@ func _on_PowerUp_Timer_timeout() -> void:
 	isSun = false
 	isShield = false
 	$Planet/AnimatedSprite.play(default_Planet_Sprite)
-	$Planet/AnimatedSprite.scale = Vector2(0.02, 0.02)
+	$Planet/AnimatedSprite.scale = Vector2(1, 1)
 	pass # Replace with function body.

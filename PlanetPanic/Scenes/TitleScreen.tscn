@@ -5,7 +5,7 @@
 [ext_resource path="res://Scripts/TitleScreen.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/FadeIn.gd" type="Script" id=4]
 [ext_resource path="res://Assets/Game_Assets/Play Button.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Game_Assets/Logo.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Game_Assets/NewLogo_withBG.png" type="Texture" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "fade_in"
@@ -41,14 +41,13 @@ __meta__ = {
 }
 
 [node name="Play" type="TextureButton" parent="TextureButton"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+anchor_left = 0.263
+anchor_top = 0.822
+anchor_right = 0.263
+anchor_bottom = 0.822
 margin_left = -64.0
-margin_top = -24.5
+margin_top = -49.0
 margin_right = 64.0
-margin_bottom = 24.5
 size_flags_horizontal = 4
 texture_normal = ExtResource( 5 )
 stretch_mode = 3

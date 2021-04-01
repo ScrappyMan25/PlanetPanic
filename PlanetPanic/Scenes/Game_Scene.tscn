@@ -51,7 +51,7 @@ Speed = 1.513
 
 [node name="PlanetSystem2" parent="." instance=ExtResource( 4 )]
 Speed = 1.513
-Radius = 150
+Radius = 135
 
 [node name="ScoreTimer" type="Timer" parent="."]
 autostart = true
@@ -61,5 +61,6 @@ autostart = true
 [node name="SoundScene" parent="." instance=ExtResource( 9 )]
 [connection signal="asteroid_hit" from="Sun" to="." method="_on_Sun_asteroid_hit"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
+[connection signal="GameOver" from="SoundScene" to="." method="_on_SoundScene_GameOver"]
 
 [editable path="SoundScene"]

@@ -1,7 +1,7 @@
 extends Node2D
 
 signal asteroid_hit
-
+var GameOver : bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$AnimatedSprite.play("default")
@@ -20,5 +20,7 @@ func _on_Sun_Area_area_entered(_area: Area2D) -> void:
 	pass # Replace with function body.
 
 func _on_AnimatedSprite_animation_finished():
-	$AnimatedSprite.play("default")
+#	if $AnimatedSprite.animation != "Sun_Sad":
+	if !GameOver:
+		$AnimatedSprite.play("default")
 	pass # Replace with function body.
