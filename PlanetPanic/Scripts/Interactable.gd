@@ -4,6 +4,7 @@ class_name Interactable
 var Speed
 var Direction : Vector2
 var area2d : Area2D
+var MouseInArea : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,9 +13,17 @@ func _ready() -> void:
 #Connects Signal of Area to the Func
 func _connectAreaSignal() -> void:
 	var err
+	var err2
+	var err3
 	if area2d:
 		err = area2d.connect("area_entered", self, "_on_Interactable_area_entered")
+		err2 = area2d.connect("mouse_entered", self, "_on_Interactable_mouse_entered")
+		err3 = area2d.connect("mouse_exited", self, "_on_Interactable_mouse_exited")
 	if err:
+		print(err)
+	if err2:
+		print(err)
+	if err3:
 		print(err)
 	pass
 
@@ -22,7 +31,13 @@ func _connectAreaSignal() -> void:
 func _process(delta: float) -> void:
 	#move towards the center
 	position += Direction * Speed * delta
-#	print(position)
+	pass
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton && MouseInArea && "Asteroid" in name:
+		if !event.is_pressed():
+			get_parent().get_parent().get_node("Sun").call_deferred("FireBall", position)
+		pass
 	pass
 
 #Properties when instances by Manager
@@ -46,6 +61,17 @@ func _set_properties(_speed: float, _destination : Vector2, _spawnLocation : Vec
 		$AnimatedSprite/CPUParticles2D.rotate(angle)
 	pass
 
-
 func _on_Interactable_area_entered(_area: Area2D) -> void:
+	if "Asteroid" in _area.get_parent().name:
+		#FireBall
+		
+		pass
 	pass # Replace with function body.
+
+func _on_Interactable_mouse_entered() -> void:
+	MouseInArea = true
+	pass
+	
+func _on_Interactable_mouse_exited() -> void:
+	MouseInArea = false
+	pass

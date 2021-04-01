@@ -7,7 +7,10 @@ var Interactables : Dictionary = {
 	"Mini_Sun" : preload("res://Scenes/Interactables/Mini_Sun.tscn"),
 	"Screen_Wipe" : preload("res://Scenes/Interactables/Screen_Wipe.tscn"),
 	"Shield" : preload("res://Scenes/Interactables/Shield.tscn"),
-	"Wishing_Star" : preload("res://Scenes/Interactables/Wishing_Star.tscn")
+	"Wishing_Star" : preload("res://Scenes/Interactables/Wishing_Star.tscn"),
+	"ReverseOrbit" : preload("res://Scenes/Interactables/ReverseOrbit.tscn"),
+	"SpeedDownOrbit" : preload("res://Scenes/Interactables/SpeedDownOrbit.tscn"),
+	"SpeedUpOrbit" : preload("res://Scenes/Interactables/SpeedUpOrbit.tscn")
 }
 
 var PowerUp_Keys : Array

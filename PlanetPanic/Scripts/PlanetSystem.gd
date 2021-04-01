@@ -30,6 +30,9 @@ var rotation_direction = [
 #	4	Screen_Wipe,
 #	5	Shield,
 #	6	Wishing_Star
+#	7	ReverseOrbit
+#	8	SpeedDownOrbit
+#	9	SpeedUpOrbit
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -67,12 +70,7 @@ func _draw() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-#	if mouseInArea && Input.is_action_pressed("ui_select"):
-#	if mouseInArea && Input.M:
-#		rotation = get_global_mouse_position().angle_to_point(position)
-	if control:
-		pass
-	else:
+	if !control:
 		rotation += Speed/10 * delta * rotation_direction
 		pass
 	pass
@@ -117,6 +115,15 @@ func checkCollisionType(I_Name : String) -> int:
 	#Wishing_Star
 	elif "Wishing_Star" in I_Name:
 		return 6
+	#ReverseOrbit
+	elif "ReverseOrbit" in I_Name:
+		return 7
+	#SpeedDownOrbit
+	elif "SpeedDownOrbit" in I_Name:
+		return 8
+	#SpeedUpOrbit
+	elif "SpeedUpOrbit" in I_Name:
+		return 9
 	return -1
 
 # Func to Implement PowerUps
@@ -158,6 +165,18 @@ func PowerUp(type : int) -> void:
 		6:
 			# Pause Scene And Open GUI To Select a Custom PowerUp. and then Run the Power up Func with that type Int
 			Game_Scene.get_node("UI").call_deferred("ShootingStarUI", self)
+			pass
+#	7	ReverseOrbit
+		7:
+			rotation_direction *= -1
+			pass
+#	8	SpeedDownOrbit
+		8:
+			Speed -= 0.5
+			pass
+#	9	SpeedUpOrbit
+		9:
+			Speed += 0.5
 			pass
 	#PlayPowerUpSoundHere
 	

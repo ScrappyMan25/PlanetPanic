@@ -3,6 +3,7 @@ extends Node
 var Score : int = 0
 var number_of_planets : int = 0
 var ScoreMultiplier : int = 1
+var limit : int = 500
 
 var PlanetSystem : PackedScene = preload("res://Scenes/PlanetSystem.tscn")
 
@@ -33,13 +34,13 @@ func _ready() -> void:
 
 func UpdateScore() -> void:
 	$UI.call_deferred("update_score", Score)
-	if Score % 500 == 0 && number_of_planets < 5:
+	if Score > limit && number_of_planets < 5:
 		Add_Planet()
+		limit += 500
 	pass
 
 func GameOver() -> void:
 	print("GAME OVER!")
-	
 	#Sun Crying
 	$Sun.set_deferred("GameOver", true)
 	$Sun/AnimatedSprite.play("Sun_Sad")
@@ -70,7 +71,6 @@ func Add_Planet() -> void:
 	number_of_planets += 1
 	add_child(p, true)
 	#Camera Adjustment
-	#TODO
 	adjust_Camera_zoom()
 	pass
 
