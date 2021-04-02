@@ -63,6 +63,7 @@ func _on_Interactable_area_entered(_area: Area2D) -> void:
 	if "FireBall" in _area.get_parent().name && "Asteroid" in name:
 		#FireBall
 		get_parent().get_parent().call_deferred("addScore", 50)
+		get_parent().get_parent().get_node("SoundScene/PlanetDestroy").play()
 		queue_free()
 		_area.get_parent().queue_free()
 		pass

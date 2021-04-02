@@ -40,6 +40,7 @@ func _ready() -> void:
 	for i in SoundScene.get_children():
 		Chomps.push_front(i)
 		pass
+	SoundScene = Game_Scene.get_node("SoundScene")
 	Chomps.shuffle()
 	$AnimatedSprite.play("default")
 	pass # Replace with function body.
@@ -81,6 +82,7 @@ func _on_AnimatedSprite_animation_finished():
 		fb._direction = (A_Destination - position).normalized()
 		fb.position.y += 20
 		add_child(fb, true)
+		SoundScene.get_node("FireBall").play()
 		$AnimatedSprite.play("default")
 		pass
 	elif !GameOver:
