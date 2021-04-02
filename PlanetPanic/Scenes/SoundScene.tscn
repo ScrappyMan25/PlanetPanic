@@ -52,6 +52,7 @@ stream = ExtResource( 1 )
 volume_db = -20.0
 
 [node name="SpaceMusic" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 3 )
 volume_db = -20.0
 
