@@ -100,3 +100,10 @@ func _on_ShieldWish_pressed() -> void:
 func _on_DoublePointsWish_pressed() -> void:
 	PowerUpSelected(1)
 	pass # Replace with function body.
+
+
+func _on_FlameAnim_timeout() -> void:
+	$SunFlames1.visible = !$SunFlames1.visible 
+	$SunFlames2.visible = !$SunFlames2.visible 
+	$FlameAnim.start()
+	pass # Replace with function body.
