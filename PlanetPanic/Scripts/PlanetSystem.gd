@@ -137,7 +137,7 @@ func PowerUp(type : int) -> void:
 		1:
 			#StartPowerUp Timer- WaitTime 5 Seconds
 			$PowerUp_Timer.start()
-			SoundScene.get_node("PowerUp").play()
+			SoundScene.get_node("DoublePoint").play()
 			#Set Score multiplier to 2
 			Game_Scene.set_deferred("ScoreMultiplier", 2)
 			# When Timer Expires set multiplier back to 1 - Handeled in Signal
@@ -145,14 +145,14 @@ func PowerUp(type : int) -> void:
 			pass
 #	2	Extra_Planet,
 		2:
-			SoundScene.get_node("PowerUp").play()
+			SoundScene.get_node("Rumbling").play()
 			Game_Scene.call_deferred("Add_Planet")
 			pass
 #	3	Mini_Sun,
 		3:
 			#StartPowerUp Timer- WaitTime 5 Seconds
 			$PowerUp_Timer.start()
-			SoundScene.get_node("PowerUp").play()
+			SoundScene.get_node("MiniSun").play()
 			#Set Sprite to Sun and Change porperty to TRUE 
 			$Planet/AnimatedSprite.scale = Vector2 (0.4, 0.4)
 			$Planet/AnimatedSprite.play("Mini_Sun")
@@ -162,11 +162,12 @@ func PowerUp(type : int) -> void:
 #	4	Screen_Wipe,
 		4:
 			# Call game Scene to delete all Asteroids on Scene
+			SoundScene.get_node("ScreenWipe").play()
 			Game_Scene.call_deferred("WipeAsteroids")
 			pass
 #	5	Shield,
 		5:
-			SoundScene.get_node("PowerUp").play()
+			SoundScene.get_node("Shield").play()
 			# Set property to true # TODO
 			$Planet/ShieldParticles.show()
 			isShield = true
@@ -174,21 +175,22 @@ func PowerUp(type : int) -> void:
 #	6	Wishing_Star
 		6:
 			# Pause Scene And Open GUI To Select a Custom PowerUp. and then Run the Power up Func with that type Int
+			SoundScene.get_node("StarPickup").play()
 			Game_Scene.get_node("UI").call_deferred("ShootingStarUI", self)
 			pass
 #	7	ReverseOrbit
 		7:
-			SoundScene.get_node("PowerDown").play()
+			SoundScene.get_node("ReverseOrbit").play()
 			rotation_direction *= -1
 			pass
 #	8	SpeedDownOrbit
 		8:
-			SoundScene.get_node("PowerDown").play()
+			SoundScene.get_node("SpeedDown").play()
 			Speed -= 0.5
 			pass
 #	9	SpeedUpOrbit
 		9:
-			SoundScene.get_node("PowerUp").play()
+			SoundScene.get_node("SpeedUp").play()
 			Speed += 0.5
 			pass
 	#PlayPowerUpSoundHere
@@ -220,7 +222,7 @@ func _on_Planet_area_entered(_area: Area2D) -> void:
 			# If Shield -> Deactivate Shield
 			if isShield:
 				isShield = false
-				SoundScene.get_node("PowerDown").play()
+				SoundScene.get_node("Shield").play()
 				$Planet/ShieldParticles.hide()
 			# If Sun PowerUp -> Call sunAsteroid Hit in Parent
 			elif isSun:

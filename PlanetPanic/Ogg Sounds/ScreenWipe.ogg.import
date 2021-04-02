@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/ScreenWipe.ogg-76089314265cc4279749c9b9b3da6b63.oggstr"
+
+[deps]
+
+source_file="res://Ogg Sounds/ScreenWipe.ogg"
+dest_files=[ "res://.import/ScreenWipe.ogg-76089314265cc4279749c9b9b3da6b63.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

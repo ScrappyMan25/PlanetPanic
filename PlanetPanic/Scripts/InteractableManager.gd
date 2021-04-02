@@ -13,13 +13,17 @@ var Interactables : Dictionary = {
 	"SpeedUpOrbit" : preload("res://Scenes/Interactables/SpeedUpOrbit.tscn")
 }
 
+var Game_Scene : Node
+var SoundScene : Node
+
 var PowerUp_Keys : Array
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	randomize()
 	spawn_Asteroid()
-	
+	Game_Scene = get_parent()
+	SoundScene = Game_Scene.get_node("SoundScene")
 	#Keys of Dict Interactables (-Asteroids) so as to randomise the Spawns
 	PowerUp_Keys = Interactables.keys()
 	PowerUp_Keys.remove(0)
@@ -33,6 +37,10 @@ func spawn_Asteroid() -> void:
 	var a_location = Vector2(rand_range(-1,1), rand_range(-1,1)).normalized() * 600 * get_parent().get_node("Camera2D").zoom.x
 	var a_destination = position
 	newAsteroid._set_properties(a_speed, a_destination, a_location)
+#	if newAsteroid.name == "Wishing_Star":
+#		SoundScene.get_node("StarTwinkling").play()
+#		print("Sound")
+#		pass
 	add_child(newAsteroid, true)
 	pass
 
@@ -53,7 +61,8 @@ func AsteroidWipe() -> void:
 		if "Asteroid" in i.name && !("_Spawn_Timer") in i.name:
 			i.queue_free()
 			get_parent().call_deferred("_on_Sun_asteroid_destroyed")
-			get_parent().get_node("SoundScene").get_node("PlanetDestroy").play()
+#			get_parent().get_node("SoundScene").get_node("PlanetDestroy").play()
+			SoundScene.get_node("PlanetDestroy").play()
 	pass
 
 #Signals

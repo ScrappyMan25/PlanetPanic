@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Star Pickup.ogg-c7e695a30d4ebbb9fe358a5ff423bdcc.oggstr"
+
+[deps]
+
+source_file="res://Ogg Sounds/Star Pickup.ogg"
+dest_files=[ "res://.import/Star Pickup.ogg-c7e695a30d4ebbb9fe358a5ff423bdcc.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Star twinkling(loopable).ogg-20a3ff7748a3e632745c26b9636607ce.oggstr"
+
+[deps]
+
+source_file="res://Ogg Sounds/Star twinkling(loopable).ogg"
+dest_files=[ "res://.import/Star twinkling(loopable).ogg-20a3ff7748a3e632745c26b9636607ce.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

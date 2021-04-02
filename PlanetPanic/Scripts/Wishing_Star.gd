@@ -4,7 +4,6 @@ extends Interactable
 func _ready() -> void:
 	#Assign Area to Var
 	area2d = $Wishing_Star_Area
-	
 	#Connect Signal
 	_connectAreaSignal()
 	pass # Replace with function body.

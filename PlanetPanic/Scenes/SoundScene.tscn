@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Ogg Sounds/Select.ogg" type="AudioStream" id=1]
 [ext_resource path="res://Ogg Sounds/PlanetDestroy.ogg" type="AudioStream" id=2]
@@ -16,6 +16,17 @@
 [ext_resource path="res://Ogg Sounds/Harrychomp6.ogg" type="AudioStream" id=14]
 [ext_resource path="res://Ogg Sounds/Harrychomp5.ogg" type="AudioStream" id=15]
 [ext_resource path="res://Ogg Sounds/Harrychomp4.ogg" type="AudioStream" id=16]
+[ext_resource path="res://Ogg Sounds/ScreenWipe.ogg" type="AudioStream" id=17]
+[ext_resource path="res://Ogg Sounds/SpeedUp3.ogg" type="AudioStream" id=18]
+[ext_resource path="res://Ogg Sounds/spit Sound Effect.ogg" type="AudioStream" id=19]
+[ext_resource path="res://Ogg Sounds/MiniSun.ogg" type="AudioStream" id=20]
+[ext_resource path="res://Ogg Sounds/Reverse Orbit.ogg" type="AudioStream" id=21]
+[ext_resource path="res://Ogg Sounds/Star Pickup.ogg" type="AudioStream" id=22]
+[ext_resource path="res://Ogg Sounds/Star twinkling(loopable).ogg" type="AudioStream" id=23]
+[ext_resource path="res://Ogg Sounds/rumbling.ogg" type="AudioStream" id=24]
+[ext_resource path="res://Ogg Sounds/SpeedDown2.ogg" type="AudioStream" id=25]
+[ext_resource path="res://Ogg Sounds/DoublePoints2.ogg" type="AudioStream" id=26]
+[ext_resource path="res://Ogg Sounds/Shield clang.ogg" type="AudioStream" id=27]
 
 [node name="SoundScene" type="Node"]
 script = ExtResource( 6 )
@@ -80,4 +91,48 @@ volume_db = -20.0
 
 [node name="7" type="AudioStreamPlayer" parent="Chomps"]
 stream = ExtResource( 14 )
+volume_db = -20.0
+
+[node name="MiniSun" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 20 )
+volume_db = -20.0
+
+[node name="ReverseOrbit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 21 )
+volume_db = -20.0
+
+[node name="Rumbling" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 24 )
+volume_db = -20.0
+
+[node name="ScreenWipe" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 17 )
+volume_db = -20.0
+
+[node name="SpeedDown" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 25 )
+volume_db = -20.0
+
+[node name="SpeedUp" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
+volume_db = -20.0
+
+[node name="SplitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 19 )
+volume_db = -20.0
+
+[node name="StarPickup" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 22 )
+volume_db = -20.0
+
+[node name="StarTwinkling" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 23 )
+volume_db = -20.0
+
+[node name="DoublePoint" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 26 )
+volume_db = -20.0
+
+[node name="Shield" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 27 )
 volume_db = -20.0
