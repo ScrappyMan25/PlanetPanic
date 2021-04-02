@@ -53,6 +53,7 @@ func AsteroidWipe() -> void:
 		if "Asteroid" in i.name && !("_Spawn_Timer") in i.name:
 			i.queue_free()
 			get_parent().call_deferred("_on_Sun_asteroid_hit")
+			get_parent().get_node("SoundScene").get_node("PlanetDestroy").play()
 	pass
 
 #Signals

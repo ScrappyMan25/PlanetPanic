@@ -17,6 +17,19 @@ var PlanetExists : Array = [
 	true
 ]
 
+#Shake Specific Stuff
+
+onready var noise = OpenSimplexNoise.new()
+var noise_y = 0
+
+var ScreenShake : Dictionary = {
+	"decay" : 0.8,
+	"max_offset" : Vector2(100,75),
+	"max_roll" : 0.1,
+	"trauma" : 0.0,
+	"trauma_power" : 2
+}
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	randomize()
@@ -28,10 +41,35 @@ func _ready() -> void:
 			c.get_node("Planet").position.x = c.Radius
 			number_of_planets += 1
 			pass
+#	Set BG
 	VisualServer.set_default_clear_color("322947")
+	
+#	Noise Setup
+	noise.seed = randi()
+	noise.period = 4
+	noise.octaves = 2
 #	for i in 4:
 #		Add_Planet()
 	pass # Replace with function body.
+
+func _process(delta: float) -> void:
+	if ScreenShake.trauma:
+		ScreenShake.trauma = max(ScreenShake.trauma - ScreenShake.decay * delta, 0)
+		shake()
+		pass
+	pass
+
+func add_trauma(amount) -> void:
+	ScreenShake.trauma = min(ScreenShake.trauma + amount, 1.0)
+	pass
+
+func shake():
+	var amount = pow(ScreenShake.trauma, ScreenShake.trauma_power)
+	noise_y += 1
+	$Camera2D.rotation = ScreenShake.max_roll * amount * noise.get_noise_2d(noise.seed, noise_y)
+	$Camera2D.offset.x = ScreenShake.max_offset.x * amount * noise.get_noise_2d(noise.seed*2, noise_y)
+	$Camera2D.offset.y = ScreenShake.max_offset.y * amount * noise.get_noise_2d(noise.seed*3, noise_y)
+	pass
 
 func UpdateScore() -> void:
 	$UI.call_deferred("update_score", Score)
@@ -52,6 +90,7 @@ func GameOver() -> void:
 
 func WipeAsteroids() -> void:
 	$InteractableManager.call_deferred("AsteroidWipe")
+	add_trauma(1.0)
 	pass
 
 func Add_Planet() -> void:
@@ -105,6 +144,7 @@ func _on_planetDestroyed(_Radius : int) -> void:
 		$SoundScene/SpaceMusic.stop()
 		GameOver()
 		pass
+	add_trauma(0.5)
 	pass
 
 func _on_ScoreTimer_timeout() -> void:
