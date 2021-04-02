@@ -55,10 +55,9 @@ func _on_Sun_Area_area_entered(_area: Area2D) -> void:
 			$ChompSound.play()
 			heat_level += 2
 			#Update Texture
+			if heat_level > 100:
+				heat_level = 100
 			SunMeter.texture = SunMeterSprites.get(heat_level - (heat_level%10))
-			if heat_level == 100:
-				#GAME OVER
-				pass
 	pass # Replace with function body.
 
 func _on_AnimatedSprite_animation_finished():

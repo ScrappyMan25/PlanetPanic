@@ -162,6 +162,7 @@ func PowerUp(type : int) -> void:
 #	5	Shield,
 		5:
 			# Set property to true # TODO
+			$PowerUp_Timer.start()
 			$Planet/ShieldParticles.show()
 			isShield = true
 			pass
@@ -197,6 +198,7 @@ func draw_circle_arc(center, radius, angle_from, angle_to, color):
 
 	for index_point in range(nb_points):
 		draw_line(points_arc[index_point], points_arc[index_point + 1], color)
+#		draw_multiline(points_arc, color, 2.0)
 
 #Signals
 
@@ -207,24 +209,21 @@ func _on_Planet_area_entered(_area: Area2D) -> void:
 		#Asteroid
 		0:
 			_area.get_parent().queue_free()
-			#If Shield PowerUp
-			if isShield:
-				isShield = false
-				$Planet/ShieldParticles.hide()
-				pass
 			# If Sun PowerUp -> Call sunAsteroid Hit in Parent
-			elif isSun:
+			if isSun:
 				Game_Scene.call_deferred("_on_Sun_asteroid_hit")
 				pass
+			# If Shield -> Do nothing destroy asteroid
 			# Else Asteroid Hit Planet -> Planet go Boom Boom!
-			else:
+			elif !isShield:
 				SoundScene.get_node("PlanetDestroy").call_deferred("play")
 				emit_signal("planetDestroyed", Radius)
 				queue_free()
 		#If not an Ansteroid 
 		_:
 #			print("UNKNOWN OBJECT: " + _area.get_parent().name)
-			_area.get_parent().queue_free()
+			if !"FireBall" in _area.get_parent().name:
+				_area.get_parent().queue_free()
 	
 	#PowerUpImplementation
 	PowerUp(InteractableType)
@@ -245,6 +244,7 @@ func _on_PowerUp_Timer_timeout() -> void:
 	isShield = false
 	$Planet/AnimatedSprite.play(default_Planet_Sprite)
 	$Planet/AnimatedSprite.scale = Vector2(1, 1)
+	$Planet/ShieldParticles.hide()
 	pass # Replace with function body.
 
 
