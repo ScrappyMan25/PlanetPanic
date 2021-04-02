@@ -4,8 +4,8 @@ var SoundScene : Node
 var PlanetReference : Node2D
 
 var powerUpSprites : Dictionary = {
-	1 : load("res://Assets/Game_Assets/Power-Ups/Coins/DoublePoints.png"), 
-	3 : load("res://Assets/Game_Assets/Power-Ups/Coins/MiniSunCoin.png"), 
+	1 : load("res://Assets/Game_Assets/Power-Ups/Coins/DoublePoints.png"),
+	3 : load("res://Assets/Game_Assets/Power-Ups/Coins/MiniSunCoin.png"),
 }
 
 func _ready():
@@ -83,8 +83,6 @@ func _on_PauseButton_pressed(): #When pause button is clicked. Pause everything 
 #	SoundScene.get_node("Select").play()
 	set_visibility(true)
 	$PauseButton.hide()
-	$SunMeterBar.hide()
-	$Blur.show()
 	get_tree().paused = true
 #	SoundScene.get_node("")
 	pass
@@ -134,8 +132,8 @@ func _on_DoublePointsWish_pressed() -> void:
 
 func _on_FlameAnim_timeout() -> void:
 	var truth : bool = $SunMeterBar/SunFlames1.visible
-	$SunMeterBar/SunFlames1.visible = !truth 
-	$SunMeterBar/SunFlames2.visible = truth 
+	$SunMeterBar/SunFlames1.visible = !truth
+	$SunMeterBar/SunFlames2.visible = truth
 	$SunMeterBar/FlameAnim.start()
 	pass # Replace with function body.
 
