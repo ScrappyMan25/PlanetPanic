@@ -53,9 +53,9 @@ func _on_Sun_Area_area_entered(_area: Area2D) -> void:
 		_area.get_parent().queue_free()
 		$AnimatedSprite.play("Sun_eat")
 		$AnimatedSprite.frame = 0
+		SoundScene.get_node("Chomp").play()
 		if "Asteroid" in _area.get_parent().name:
 			emit_signal("asteroid_hit")
-			SoundScene.get_node("Chomp").play()
 			heat_level += 2
 			#Update Texture
 			if heat_level > 100:
