@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://pixel-emulator-font/PixelEmulator-xq08.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Game_Assets/SettingsButton.png" type="Texture" id=2]
@@ -22,10 +22,6 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 32
-font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=4]
-size = 50
 font_data = ExtResource( 1 )
 
 [node name="UI" type="CanvasLayer"]
@@ -233,13 +229,8 @@ margin_bottom = 49.0
 texture_normal = ExtResource( 9 )
 
 [node name="SunMeterBar" type="Control" parent="."]
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = -40.0
-margin_top = -20.0
-margin_bottom = 20.0
+margin_right = 40.0
+margin_bottom = 40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -249,10 +240,10 @@ anchor_left = 0.911
 anchor_top = 0.366
 anchor_right = 0.911
 anchor_bottom = 0.366
-margin_left = -94.9396
-margin_top = -73.9388
-margin_right = 33.0604
-margin_bottom = 182.061
+margin_left = 896.424
+margin_top = 196.176
+margin_right = 1024.42
+margin_bottom = 452.176
 rect_scale = Vector2( 0.75, 0.75 )
 texture = ExtResource( 10 )
 __meta__ = {
@@ -264,10 +255,10 @@ anchor_left = 0.908
 anchor_top = 0.352
 anchor_right = 0.908
 anchor_bottom = 0.352
-margin_left = -97.8917
-margin_top = -81.4428
-margin_right = 158.108
-margin_bottom = 430.557
+margin_left = 893.472
+margin_top = 188.672
+margin_right = 1149.47
+margin_bottom = 700.672
 rect_scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 11 )
 __meta__ = {
@@ -293,21 +284,6 @@ __meta__ = {
 [node name="FlameAnim" type="Timer" parent="SunMeterBar"]
 wait_time = 0.25
 autostart = true
-
-[node name="FinalScore" type="Label" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -95.0
-margin_top = 112.0
-margin_right = 95.0
-margin_bottom = 171.0
-custom_fonts/font = SubResource( 4 )
-text = "Score"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 [connection signal="pressed" from="Button/Continue" to="." method="_on_Continue_pressed"]
 [connection signal="pressed" from="Button/Restart" to="." method="_on_Restart_pressed"]
 [connection signal="pressed" from="Button/MainMenu" to="." method="_on_MainMenu_pressed"]

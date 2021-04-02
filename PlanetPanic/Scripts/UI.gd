@@ -7,7 +7,6 @@ func _ready():
 	SoundScene = get_parent().get_node("SoundScene")
 	#get score from player
 	# update_score(get_node("../[ScriptLocation].ScoreFunction"))
-	$FinalScore.hide()
 	set_visibility(false) #Set some visiblity to false at the start
 	update_score(0)
 	for c in get_children():
@@ -21,6 +20,7 @@ func _ready():
 func update_score(score : int) -> void:
 	#Change the text of score lable
 	$Score.text = "SCORE: " + score as String
+#	$FinalScore.text = score as String
 	pass
 
 func set_visibility(_is_visible):
@@ -54,8 +54,7 @@ func game_Over():
 		pass
 	$PauseButton.hide()
 	$SunMeterBar.hide()
-	$FinalScore.show()
-	$FinalScore.text = $Score.text
+#	$FinalScore.show()
 	pass
 
 #Signals
