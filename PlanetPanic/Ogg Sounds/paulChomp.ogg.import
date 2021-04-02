@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/paulChomp.ogg-ab34d8ad19a2c13419ab54150bc90864.oggstr"
+
+[deps]
+
+source_file="res://Ogg Sounds/paulChomp.ogg"
+dest_files=[ "res://.import/paulChomp.ogg-ab34d8ad19a2c13419ab54150bc90864.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

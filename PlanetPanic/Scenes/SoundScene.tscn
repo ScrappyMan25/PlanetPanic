@@ -1,37 +1,37 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Planet Panic SFX/High Score.wav" type="AudioStream" id=1]
-[ext_resource path="res://Planet Panic SFX/Select.wav" type="AudioStream" id=2]
-[ext_resource path="res://Planet Panic SFX/Fire Ball.wav" type="AudioStream" id=3]
-[ext_resource path="res://Planet Panic SFX/PlanetDestroy.wav" type="AudioStream" id=4]
-[ext_resource path="res://Planet Panic SFX/GameOver.wav" type="AudioStream" id=5]
+[ext_resource path="res://Ogg Sounds/Select.ogg" type="AudioStream" id=1]
+[ext_resource path="res://Ogg Sounds/PlanetDestroy.ogg" type="AudioStream" id=2]
+[ext_resource path="res://Ogg Sounds/Space Music(lower file size).ogg" type="AudioStream" id=3]
+[ext_resource path="res://Ogg Sounds/Game Over.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Ogg Sounds/Fire Ball.ogg" type="AudioStream" id=5]
 [ext_resource path="res://Scripts/SoundScene.gd" type="Script" id=6]
-[ext_resource path="res://Planet Panic SFX/Space MusicPaul.wav" type="AudioStream" id=7]
+[ext_resource path="res://Ogg Sounds/High score jingle.ogg" type="AudioStream" id=7]
 
 [node name="SoundScene" type="Node"]
 script = ExtResource( 6 )
 
 [node name="FireBall" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 3 )
-volume_db = -20.0
-
-[node name="GameOver" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 volume_db = -20.0
 
-[node name="HighScore" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 1 )
-volume_db = -20.0
-
-[node name="PlanetDestroy" type="AudioStreamPlayer" parent="."]
+[node name="GameOver" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 volume_db = -20.0
 
-[node name="Select" type="AudioStreamPlayer" parent="."]
+[node name="HighScore" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -20.0
+
+[node name="PlanetDestroy" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
 volume_db = -20.0
 
+[node name="Select" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+volume_db = -20.0
+
 [node name="SpaceMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 7 )
+stream = ExtResource( 3 )
 volume_db = -20.0
 [connection signal="finished" from="GameOver" to="." method="_on_GameOver_finished"]

@@ -52,7 +52,7 @@ func _on_Sun_Area_area_entered(_area: Area2D) -> void:
 		$AnimatedSprite.frame = 0
 		if "Asteroid" in _area.get_parent().name:
 			emit_signal("asteroid_hit")
-			$PlanetDestroy.play()
+			$ChompSound.play()
 			heat_level += 2
 			#Update Texture
 			SunMeter.texture = SunMeterSprites.get(heat_level - (heat_level%10))

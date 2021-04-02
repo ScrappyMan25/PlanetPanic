@@ -162,6 +162,7 @@ func PowerUp(type : int) -> void:
 #	5	Shield,
 		5:
 			# Set property to true # TODO
+			$Planet/ShieldParticles.show()
 			isShield = true
 			pass
 #	6	Wishing_Star
@@ -208,6 +209,8 @@ func _on_Planet_area_entered(_area: Area2D) -> void:
 			_area.get_parent().queue_free()
 			#If Shield PowerUp
 			if isShield:
+				isShield = false
+				$Planet/ShieldParticles.hide()
 				pass
 			# If Sun PowerUp -> Call sunAsteroid Hit in Parent
 			elif isSun:

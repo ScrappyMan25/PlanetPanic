@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/High score jingle.ogg-0332b9af8d10c140edea25854f770594.oggstr"
+
+[deps]
+
+source_file="res://Ogg Sounds/High score jingle.ogg"
+dest_files=[ "res://.import/High score jingle.ogg-0332b9af8d10c140edea25854f770594.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

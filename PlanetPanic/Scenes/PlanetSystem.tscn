@@ -10,6 +10,9 @@ Radius = 100
 
 [node name="Planet" parent="." instance=ExtResource( 2 )]
 
+[node name="ShieldParticles" parent="Planet" index="2"]
+visible = false
+
 [node name="PowerUp_Timer" type="Timer" parent="."]
 wait_time = 5.0
 [connection signal="area_entered" from="Planet" to="." method="_on_Planet_area_entered"]
@@ -17,3 +20,5 @@ wait_time = 5.0
 [connection signal="mouse_entered" from="Planet" to="." method="_on_Planet_mouse_entered"]
 [connection signal="mouse_exited" from="Planet" to="." method="_on_Planet_mouse_exited"]
 [connection signal="timeout" from="PowerUp_Timer" to="." method="_on_PowerUp_Timer_timeout"]
+
+[editable path="Planet"]

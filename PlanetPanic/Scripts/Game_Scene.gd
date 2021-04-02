@@ -99,6 +99,7 @@ func _on_planetDestroyed(_Radius : int) -> void:
 	adjust_Camera_zoom()
 	if number_of_planets == 0:
 		#gameOver
+		$SoundScene/SpaceMusic.stop()
 		GameOver()
 		pass
 	pass
@@ -117,9 +118,4 @@ func _on_Sun_asteroid_hit() -> void:
 #Called when Game over sound ends
 func _on_SoundScene_GameOver() -> void:
 	#GameOver
-	
-	pass # Replace with function body.
-
-func _on_SpaceMusic_finished() -> void:
-	$SoundScene/SpaceMusic.play()
 	pass # Replace with function body.

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Harrychomp1.ogg-0ff4d509cf4b915fd170049a88175faa.oggstr"
+
+[deps]
+
+source_file="res://Ogg Sounds/Harrychomp1.ogg"
+dest_files=[ "res://.import/Harrychomp1.ogg-0ff4d509cf4b915fd170049a88175faa.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

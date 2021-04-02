@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/PlanetDestroy.ogg-49968edb911a20a431e2487c5794b6e6.oggstr"
+
+[deps]
+
+source_file="res://Ogg Sounds/PlanetDestroy.ogg"
+dest_files=[ "res://.import/PlanetDestroy.ogg-49968edb911a20a431e2487c5794b6e6.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

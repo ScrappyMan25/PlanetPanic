@@ -62,6 +62,5 @@ autostart = true
 [connection signal="asteroid_hit" from="Sun" to="." method="_on_Sun_asteroid_hit"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
 [connection signal="GameOver" from="SoundScene" to="." method="_on_SoundScene_GameOver"]
-[connection signal="finished" from="SoundScene/SpaceMusic" to="." method="_on_SpaceMusic_finished"]
 
 [editable path="SoundScene"]
