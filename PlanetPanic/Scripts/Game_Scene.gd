@@ -163,8 +163,3 @@ func _on_Sun_asteroid_destroyed() -> void:
 	Score += 50 * ScoreMultiplier
 	UpdateScore()
 	pass
-
-#Called when Game over sound ends
-func _on_SoundScene_GameOver() -> void:
-	#GameOver
-	pass # Replace with function body.
