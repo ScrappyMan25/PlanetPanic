@@ -252,3 +252,8 @@ func _on_Planet_input_event(_viewport: Node, event: InputEvent, _shape_idx: int)
 	if event is InputEventScreenTouch:# || event is InputEventMouseButton:
 		control = true
 	pass # Replace with function body.
+
+
+func _on_Fade_ready():
+	$Fade.play("Fade")
+	pass # Replace with function body.
