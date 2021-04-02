@@ -75,6 +75,7 @@ func game_Over():
 	$SunMeterBar.hide()
 	$Score.hide()
 	$FinalScore.show()
+	$Blur.show()
 	pass
 
 #Signals
@@ -83,7 +84,9 @@ func _on_PauseButton_pressed(): #When pause button is clicked. Pause everything 
 #	SoundScene.get_node("Select").play()
 	set_visibility(true)
 	$PauseButton.hide()
+	$Blur.show()
 	get_tree().paused = true
+	$SunMeterBar/FlameAnim.stop()
 #	SoundScene.get_node("")
 	pass
 
@@ -91,6 +94,7 @@ func _on_Continue_pressed(): #Unpause everyting when the continue button is clic
 	$PauseButton.show()
 	$SunMeterBar.show()
 	$Blur.hide()
+	$SunMeterBar/FlameAnim.stop()
 	SoundScene.get_node("Select").play()
 	get_tree().paused = false
 	set_visibility(false)

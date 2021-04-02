@@ -14,11 +14,11 @@
 [ext_resource path="res://Assets/Game_Assets/SunMeter/flame2.png" type="Texture" id=12]
 [ext_resource path="res://Assets/black_color.png" type="Texture" id=13]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 24
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=3]
@@ -40,7 +40,7 @@ anchor_right = 0.022
 anchor_bottom = 0.032
 margin_right = 244.0
 margin_bottom = 29.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "Score: Numbers"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -154,7 +154,7 @@ visible = false
 margin_right = 40.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 0, 40 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Continue"
 align = 1
 valign = 1
@@ -174,7 +174,7 @@ visible = false
 margin_right = 40.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 98, 40 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Restart"
 align = 1
 valign = 1
@@ -194,7 +194,7 @@ visible = false
 margin_right = 40.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 98, 40 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Restart"
 align = 1
 valign = 1
@@ -232,7 +232,7 @@ visible = false
 margin_right = 40.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 98, 40 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Restart"
 align = 1
 valign = 1
@@ -259,7 +259,7 @@ visible = false
 margin_right = 40.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 98, 40 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Restart"
 align = 1
 valign = 1
