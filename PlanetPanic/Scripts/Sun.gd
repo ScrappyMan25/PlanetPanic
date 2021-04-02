@@ -5,6 +5,8 @@ var GameOver : bool = false
 
 var heat_level : int  = 50
 
+var A_Destination : Vector2 = Vector2.ZERO
+
 var SunMeterSprites : Dictionary = {
 	0: load("res://Assets/Game_Assets/SunMeter/0.png"),
 	10: load("res://Assets/Game_Assets/SunMeter/1.png"),
@@ -34,15 +36,13 @@ func _ready() -> void:
 
 func FireBall(I_Pos : Vector2) -> void:
 	#Shoot FireBall to I_Pos
-	print(I_Pos)
-	if heat_level - 10 > 0:
-		heat_level -= 10
-		SunMeter.texture = SunMeterSprites.get(heat_level - (heat_level%10))
-		$AnimatedSprite.play("Sun_Spit")
-		var fb = FireBallScene.instance()
-		fb.get_node("AnimatedSprite").rotate(position.angle_to_point(I_Pos))
-		fb._direction = (I_Pos - position).normalized()
-		add_child(fb, true)
+	if !$AnimatedSprite.animation == "Sun_Spit":
+		if heat_level - 10 > 0:
+			heat_level -= 10
+			SunMeter.texture = SunMeterSprites.get(heat_level - (heat_level%10))
+			A_Destination = I_Pos
+			$AnimatedSprite.play("Sun_Spit")
+			
 	pass
 
 #Signals
@@ -51,8 +51,9 @@ func _on_Sun_Area_area_entered(_area: Area2D) -> void:
 #	print(_area.get_parent().name)
 	if !"FireBall" in _area.get_parent().name:
 		_area.get_parent().queue_free()
-		$AnimatedSprite.play("Sun_eat")
-		$AnimatedSprite.frame = 0
+		if !$AnimatedSprite.animation == "Sun_Spit":
+			$AnimatedSprite.play("Sun_eat")
+			$AnimatedSprite.frame = 0
 		SoundScene.get_node("Chomp").play()
 		if "Asteroid" in _area.get_parent().name:
 			emit_signal("asteroid_hit")
@@ -64,6 +65,14 @@ func _on_Sun_Area_area_entered(_area: Area2D) -> void:
 	pass # Replace with function body.
 
 func _on_AnimatedSprite_animation_finished():
-	if !GameOver:
+	if $AnimatedSprite.animation == "Sun_Spit":
+		var fb = FireBallScene.instance()
+		fb.get_node("AnimatedSprite").rotate(position.angle_to_point(A_Destination))
+		fb._direction = (A_Destination - position).normalized()
+		fb.position.y += 20
+		add_child(fb, true)
+		$AnimatedSprite.play("default")
+		pass
+	elif !GameOver:
 		$AnimatedSprite.play("default")
 	pass # Replace with function body.

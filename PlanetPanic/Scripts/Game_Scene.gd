@@ -18,6 +18,7 @@ var PlanetExists : Array = [
 ]
 
 #Shake Specific Stuff
+# Referenced from https://kidscancode.org/godot_recipes/2d/screen_shake/
 
 onready var noise = OpenSimplexNoise.new()
 var noise_y = 0
