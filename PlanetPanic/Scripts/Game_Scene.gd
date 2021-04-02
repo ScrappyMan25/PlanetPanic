@@ -28,6 +28,7 @@ func _ready() -> void:
 			c.get_node("Planet").position.x = c.Radius
 			number_of_planets += 1
 			pass
+	VisualServer.set_default_clear_color("322947")
 #	for i in 4:
 #		Add_Planet()
 	pass # Replace with function body.
