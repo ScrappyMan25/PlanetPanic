@@ -81,4 +81,3 @@ volume_db = -20.0
 [node name="7" type="AudioStreamPlayer" parent="Chomps"]
 stream = ExtResource( 14 )
 volume_db = -20.0
-[connection signal="finished" from="GameOver" to="." method="_on_GameOver_finished"]

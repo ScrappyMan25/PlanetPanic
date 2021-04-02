@@ -4,12 +4,13 @@ var SoundScene : Node
 var PlanetReference : Node2D
 
 var powerUpSprites : Dictionary = {
-	1 : load("res://Assets/Game_Assets/Power-Ups/Coins/DoublePoints.png"), 
-	3 : load("res://Assets/Game_Assets/Power-Ups/Coins/MiniSunCoin.png"), 
+	1 : load("res://Assets/Game_Assets/Power-Ups/Coins/DoublePoints.png"),
+	3 : load("res://Assets/Game_Assets/Power-Ups/Coins/MiniSunCoin.png"),
 }
 
 func _ready():
 	SoundScene = get_parent().get_node("SoundScene")
+	$Blur.hide()
 	#get score from player
 	# update_score(get_node("../[ScriptLocation].ScoreFunction"))
 	set_visibility(false) #Set some visiblity to false at the start
@@ -74,6 +75,7 @@ func game_Over():
 	$SunMeterBar.hide()
 	$Score.hide()
 	$FinalScore.show()
+	$Blur.show()
 	pass
 
 #Signals
@@ -82,12 +84,17 @@ func _on_PauseButton_pressed(): #When pause button is clicked. Pause everything 
 #	SoundScene.get_node("Select").play()
 	set_visibility(true)
 	$PauseButton.hide()
+	$Blur.show()
 	get_tree().paused = true
+	$SunMeterBar/FlameAnim.stop()
+#	SoundScene.get_node("")
 	pass
 
 func _on_Continue_pressed(): #Unpause everyting when the continue button is clicked
 	$PauseButton.show()
 	$SunMeterBar.show()
+	$Blur.hide()
+	$SunMeterBar/FlameAnim.stop()
 	SoundScene.get_node("Select").play()
 	get_tree().paused = false
 	set_visibility(false)
@@ -129,8 +136,8 @@ func _on_DoublePointsWish_pressed() -> void:
 
 func _on_FlameAnim_timeout() -> void:
 	var truth : bool = $SunMeterBar/SunFlames1.visible
-	$SunMeterBar/SunFlames1.visible = !truth 
-	$SunMeterBar/SunFlames2.visible = truth 
+	$SunMeterBar/SunFlames1.visible = !truth
+	$SunMeterBar/SunFlames2.visible = truth
 	$SunMeterBar/FlameAnim.start()
 	pass # Replace with function body.
 
