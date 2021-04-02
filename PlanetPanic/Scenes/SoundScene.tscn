@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Ogg Sounds/Select.ogg" type="AudioStream" id=1]
 [ext_resource path="res://Ogg Sounds/PlanetDestroy.ogg" type="AudioStream" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://Ogg Sounds/Fire Ball.ogg" type="AudioStream" id=5]
 [ext_resource path="res://Scripts/SoundScene.gd" type="Script" id=6]
 [ext_resource path="res://Ogg Sounds/High score jingle.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Ogg Sounds/PowerUp2.ogg" type="AudioStream" id=8]
+[ext_resource path="res://Ogg Sounds/PowerDown.ogg" type="AudioStream" id=9]
 
 [node name="SoundScene" type="Node"]
 script = ExtResource( 6 )
@@ -34,4 +36,10 @@ volume_db = -20.0
 [node name="SpaceMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 volume_db = -20.0
+
+[node name="PowerDown" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+
+[node name="PowerUp" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
 [connection signal="finished" from="GameOver" to="." method="_on_GameOver_finished"]

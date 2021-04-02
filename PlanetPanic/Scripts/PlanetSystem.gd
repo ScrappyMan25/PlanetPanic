@@ -137,18 +137,21 @@ func PowerUp(type : int) -> void:
 		1:
 			#StartPowerUp Timer- WaitTime 5 Seconds
 			$PowerUp_Timer.start()
+			SoundScene.get_node("PowerUp").play()
 			#Set Score multiplier to 2
 			Game_Scene.set_deferred("ScoreMultiplier", 2)
 			# When Timer Expires set multiplier back to 1 - Handeled in Signal
 			pass
 #	2	Extra_Planet,
 		2:
+			SoundScene.get_node("PowerUp").play()
 			Game_Scene.call_deferred("Add_Planet")
 			pass
 #	3	Mini_Sun,
 		3:
 			#StartPowerUp Timer- WaitTime 5 Seconds
 			$PowerUp_Timer.start()
+			SoundScene.get_node("PowerUp").play()
 			#Set Sprite to Sun and Change porperty to TRUE 
 			$Planet/AnimatedSprite.scale = Vector2 (0.4, 0.4)
 			$Planet/AnimatedSprite.play("Mini_Sun")
@@ -161,6 +164,7 @@ func PowerUp(type : int) -> void:
 			pass
 #	5	Shield,
 		5:
+			SoundScene.get_node("PowerUp").play()
 			# Set property to true # TODO
 			$Planet/ShieldParticles.show()
 			isShield = true
@@ -172,14 +176,17 @@ func PowerUp(type : int) -> void:
 			pass
 #	7	ReverseOrbit
 		7:
+			SoundScene.get_node("PowerDown").play()
 			rotation_direction *= -1
 			pass
 #	8	SpeedDownOrbit
 		8:
+			SoundScene.get_node("PowerDown").play()
 			Speed -= 0.5
 			pass
 #	9	SpeedUpOrbit
 		9:
+			SoundScene.get_node("PowerUp").play()
 			Speed += 0.5
 			pass
 	#PlayPowerUpSoundHere
@@ -211,6 +218,7 @@ func _on_Planet_area_entered(_area: Area2D) -> void:
 			# If Shield -> Deactivate Shield
 			if isShield:
 				isShield = false
+				SoundScene.get_node("PowerDown").play()
 				$Planet/ShieldParticles.hide()
 			# If Sun PowerUp -> Call sunAsteroid Hit in Parent
 			elif isSun:
@@ -226,7 +234,6 @@ func _on_Planet_area_entered(_area: Area2D) -> void:
 #			print("UNKNOWN OBJECT: " + _area.get_parent().name)
 			if !"FireBall" in _area.get_parent().name:
 				_area.get_parent().queue_free()
-	
 	#PowerUpImplementation
 	PowerUp(InteractableType)
 	pass
