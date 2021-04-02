@@ -14,9 +14,7 @@ func _ready():
 			c.hide()
 			pass
 		pass
-	
 	$WishingStar.hide()
-	
 	pass
 
 func update_score(score : int) -> void:
@@ -27,11 +25,11 @@ func update_score(score : int) -> void:
 func set_visibility(_is_visible):
 	for node in get_children():#look for all child node and hide if its not in Interface
 		if node.name == "Button":
-#			node.visible = is_visible
-			if _is_visible:
-				node.show()
-			else:
-				node.hide()
+			node.visible = _is_visible
+#			if _is_visible:
+#				node.show()
+#			else:
+#				node.hide()
 		pass
 	pass
 
@@ -54,6 +52,7 @@ func game_Over():
 			pass
 		pass
 	$PauseButton.hide()
+	$SunMeterBar.hide()
 	pass
 
 #Signals
@@ -62,11 +61,13 @@ func _on_PauseButton_pressed(): #When pause button is clicked. Pause everything 
 #	SoundScene.get_node("Select").play()
 	set_visibility(true)
 	$PauseButton.hide()
+	$SunMeterBar.hide()
 	get_tree().paused = true
 	pass
 
 func _on_Continue_pressed(): #Unpause everyting when the continue button is clicked
 	$PauseButton.show()
+	$SunMeterBar.show()
 	SoundScene.get_node("Select").play()
 	get_tree().paused = false
 	set_visibility(false)
@@ -107,8 +108,8 @@ func _on_DoublePointsWish_pressed() -> void:
 
 
 func _on_FlameAnim_timeout() -> void:
-	var truth : bool = $SunFlames1.visible
-	$SunFlames1.visible = !truth 
-	$SunFlames2.visible = truth 
-	$FlameAnim.start()
+	var truth : bool = $SunMeterBar/SunFlames1.visible
+	$SunMeterBar/SunFlames1.visible = !truth 
+	$SunMeterBar/SunFlames2.visible = truth 
+	$SunMeterBar/FlameAnim.start()
 	pass # Replace with function body.

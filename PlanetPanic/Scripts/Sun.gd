@@ -21,11 +21,14 @@ var SunMeterSprites : Dictionary = {
 
 var FireBallScene : PackedScene = preload("res://Scenes/FireBall.tscn")
 var SunMeter : TextureRect
-
+var Game_Scene : Node
+var SoundScene : Node
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	SunMeter = get_parent().get_node("UI").get_node("SunMeter")
+	SunMeter = get_parent().get_node("UI").get_node("SunMeterBar").get_node("SunMeter")
 	SunMeter.texture = SunMeterSprites.get(heat_level)
+	Game_Scene = get_parent()
+	SoundScene = Game_Scene.get_node("SoundScene")
 	$AnimatedSprite.play("default")
 	pass # Replace with function body.
 
@@ -52,7 +55,7 @@ func _on_Sun_Area_area_entered(_area: Area2D) -> void:
 		$AnimatedSprite.frame = 0
 		if "Asteroid" in _area.get_parent().name:
 			emit_signal("asteroid_hit")
-			$ChompSound.play()
+			SoundScene.get_node("Chomp").play()
 			heat_level += 2
 			#Update Texture
 			if heat_level > 100:
