@@ -21,24 +21,24 @@ animations = [ {
 "name": "1",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ) ],
-"loop": false,
-"name": "6",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 4 ) ],
-"loop": false,
-"name": "3",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 8 ) ],
 "loop": false,
 "name": "5",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 5 ) ],
+"loop": false,
+"name": "6",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 2 ) ],
 "loop": false,
 "name": "4",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": false,
+"name": "3",
 "speed": 5.0
 } ]
 

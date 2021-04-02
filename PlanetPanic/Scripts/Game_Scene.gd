@@ -28,7 +28,7 @@ func _ready() -> void:
 			c.get_node("Planet").position.x = c.Radius
 			number_of_planets += 1
 			pass
-#	for i in 3:
+#	for i in 4:
 #		Add_Planet()
 	pass # Replace with function body.
 
@@ -82,6 +82,8 @@ func adjust_Camera_zoom():
 	else:
 		$Camera2D.zoom = Vector2(1, 1)
 		pass
+#	print(get_viewport().size)
+	$Camera2D.get_viewport_rect().size = $Camera2D/CPUParticles2D.emission_rect_extents
 	pass
 
 func addScore(s : int):

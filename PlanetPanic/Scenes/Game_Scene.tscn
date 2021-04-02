@@ -34,7 +34,7 @@ texture = ExtResource( 6 )
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Camera2D"]
 material = SubResource( 1 )
-amount = 20
+amount = 50
 lifetime = 2.0
 texture = ExtResource( 7 )
 emission_shape = 2
