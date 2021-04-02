@@ -284,6 +284,19 @@ __meta__ = {
 [node name="FlameAnim" type="Timer" parent="SunMeterBar"]
 wait_time = 0.25
 autostart = true
+
+[node name="PowerUpDisplay" type="TextureRect" parent="SunMeterBar"]
+anchor_top = 0.838
+anchor_bottom = 0.838
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpriteFadeTimer" type="Timer" parent="SunMeterBar"]
+wait_time = 5.0
+one_shot = true
 [connection signal="pressed" from="Button/Continue" to="." method="_on_Continue_pressed"]
 [connection signal="pressed" from="Button/Restart" to="." method="_on_Restart_pressed"]
 [connection signal="pressed" from="Button/MainMenu" to="." method="_on_MainMenu_pressed"]
@@ -294,3 +307,4 @@ autostart = true
 [connection signal="pressed" from="WishingStar/ShieldWish" to="." method="_on_ShieldWish_pressed"]
 [connection signal="pressed" from="WishingStar/DoublePointsWish" to="." method="_on_DoublePointsWish_pressed"]
 [connection signal="timeout" from="SunMeterBar/FlameAnim" to="." method="_on_FlameAnim_timeout"]
+[connection signal="timeout" from="SunMeterBar/SpriteFadeTimer" to="." method="_on_SpriteFadeTimer_timeout"]

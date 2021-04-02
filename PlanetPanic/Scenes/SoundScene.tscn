@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Ogg Sounds/Select.ogg" type="AudioStream" id=1]
 [ext_resource path="res://Ogg Sounds/PlanetDestroy.ogg" type="AudioStream" id=2]
@@ -10,6 +10,12 @@
 [ext_resource path="res://Ogg Sounds/PowerUp2.ogg" type="AudioStream" id=8]
 [ext_resource path="res://Ogg Sounds/PowerDown.ogg" type="AudioStream" id=9]
 [ext_resource path="res://Ogg Sounds/paulChomp.ogg" type="AudioStream" id=10]
+[ext_resource path="res://Ogg Sounds/Harrychomp1.ogg" type="AudioStream" id=11]
+[ext_resource path="res://Ogg Sounds/Harrychomp2.ogg" type="AudioStream" id=12]
+[ext_resource path="res://Ogg Sounds/Harrychomp3.ogg" type="AudioStream" id=13]
+[ext_resource path="res://Ogg Sounds/Harrychomp6.ogg" type="AudioStream" id=14]
+[ext_resource path="res://Ogg Sounds/Harrychomp5.ogg" type="AudioStream" id=15]
+[ext_resource path="res://Ogg Sounds/Harrychomp4.ogg" type="AudioStream" id=16]
 
 [node name="SoundScene" type="Node"]
 script = ExtResource( 6 )
@@ -46,7 +52,33 @@ volume_db = -20.0
 stream = ExtResource( 8 )
 volume_db = -20.0
 
-[node name="Chomp" type="AudioStreamPlayer" parent="."]
+[node name="Chomps" type="Node" parent="."]
+
+[node name="1" type="AudioStreamPlayer" parent="Chomps"]
 stream = ExtResource( 10 )
+volume_db = -20.0
+
+[node name="2" type="AudioStreamPlayer" parent="Chomps"]
+stream = ExtResource( 11 )
+volume_db = -20.0
+
+[node name="3" type="AudioStreamPlayer" parent="Chomps"]
+stream = ExtResource( 12 )
+volume_db = -20.0
+
+[node name="4" type="AudioStreamPlayer" parent="Chomps"]
+stream = ExtResource( 13 )
+volume_db = -20.0
+
+[node name="5" type="AudioStreamPlayer" parent="Chomps"]
+stream = ExtResource( 16 )
+volume_db = -20.0
+
+[node name="6" type="AudioStreamPlayer" parent="Chomps"]
+stream = ExtResource( 15 )
+volume_db = -20.0
+
+[node name="7" type="AudioStreamPlayer" parent="Chomps"]
+stream = ExtResource( 14 )
 volume_db = -20.0
 [connection signal="finished" from="GameOver" to="." method="_on_GameOver_finished"]

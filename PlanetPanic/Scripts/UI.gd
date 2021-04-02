@@ -3,6 +3,11 @@ extends CanvasLayer
 var SoundScene : Node
 var PlanetReference : Node2D
 
+var powerUpSprites : Dictionary = {
+	1 : load("res://Assets/Game_Assets/Power-Ups/Coins/DoublePoints.png"), 
+	3 : load("res://Assets/Game_Assets/Power-Ups/Coins/MiniSunCoin.png"), 
+}
+
 func _ready():
 	SoundScene = get_parent().get_node("SoundScene")
 	#get score from player
@@ -17,10 +22,23 @@ func _ready():
 	$WishingStar.hide()
 	pass
 
+func _process(_delta: float) -> void:
+	if $SunMeterBar/SpriteFadeTimer.time_left:
+		$SunMeterBar/PowerUpDisplay.modulate.a8 = $SunMeterBar/SpriteFadeTimer.time_left * 51
+		pass
+	pass
+
 func update_score(score : int) -> void:
 	#Change the text of score lable
 	$Score.text = "SCORE: " + score as String
 #	$FinalScore.text = score as String
+	pass
+
+func setPowerUpSprite(_type : int) -> void:
+	#use type to assign texture to $PowerUpDisplay
+	$SunMeterBar/PowerUpDisplay.texture = powerUpSprites.get(_type)
+	$SunMeterBar/PowerUpDisplay.modulate.a8 = 255
+	$SunMeterBar/SpriteFadeTimer.start()
 	pass
 
 func set_visibility(_is_visible):
@@ -114,4 +132,9 @@ func _on_FlameAnim_timeout() -> void:
 	$SunMeterBar/SunFlames1.visible = !truth 
 	$SunMeterBar/SunFlames2.visible = truth 
 	$SunMeterBar/FlameAnim.start()
+	pass # Replace with function body.
+
+
+func _on_SpriteFadeTimer_timeout() -> void:
+	$SunMeterBar/PowerUpDisplay.modulate.a8 = 0
 	pass # Replace with function body.

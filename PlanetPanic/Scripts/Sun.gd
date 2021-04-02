@@ -25,12 +25,22 @@ var FireBallScene : PackedScene = preload("res://Scenes/FireBall.tscn")
 var SunMeter : TextureRect
 var Game_Scene : Node
 var SoundScene : Node
+
+var Chomps : Array = [
+	
+]
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	randomize()
 	SunMeter = get_parent().get_node("UI").get_node("SunMeterBar").get_node("SunMeter")
 	SunMeter.texture = SunMeterSprites.get(heat_level)
 	Game_Scene = get_parent()
-	SoundScene = Game_Scene.get_node("SoundScene")
+	SoundScene = Game_Scene.get_node("SoundScene/Chomps")
+	for i in SoundScene.get_children():
+		Chomps.push_front(i)
+		pass
+	Chomps.shuffle()
 	$AnimatedSprite.play("default")
 	pass # Replace with function body.
 
@@ -42,7 +52,6 @@ func FireBall(I_Pos : Vector2) -> void:
 			SunMeter.texture = SunMeterSprites.get(heat_level - (heat_level%10))
 			A_Destination = I_Pos
 			$AnimatedSprite.play("Sun_Spit")
-			
 	pass
 
 #Signals
@@ -54,7 +63,8 @@ func _on_Sun_Area_area_entered(_area: Area2D) -> void:
 		if !$AnimatedSprite.animation == "Sun_Spit":
 			$AnimatedSprite.play("Sun_eat")
 			$AnimatedSprite.frame = 0
-		SoundScene.get_node("Chomp").play()
+		Chomps.shuffle()
+		Chomps[0].play()
 		if "Asteroid" in _area.get_parent().name:
 			emit_signal("asteroid_hit")
 			heat_level += 2

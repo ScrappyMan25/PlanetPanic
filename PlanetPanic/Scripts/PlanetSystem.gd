@@ -141,6 +141,7 @@ func PowerUp(type : int) -> void:
 			#Set Score multiplier to 2
 			Game_Scene.set_deferred("ScoreMultiplier", 2)
 			# When Timer Expires set multiplier back to 1 - Handeled in Signal
+			get_parent().get_node("UI").call_deferred("setPowerUpSprite", 1)
 			pass
 #	2	Extra_Planet,
 		2:
@@ -156,6 +157,7 @@ func PowerUp(type : int) -> void:
 			$Planet/AnimatedSprite.scale = Vector2 (0.4, 0.4)
 			$Planet/AnimatedSprite.play("Mini_Sun")
 			isSun = true
+			get_parent().get_node("UI").call_deferred("setPowerUpSprite", 3)
 			pass
 #	4	Screen_Wipe,
 		4:
@@ -223,6 +225,7 @@ func _on_Planet_area_entered(_area: Area2D) -> void:
 			# If Sun PowerUp -> Call sunAsteroid Hit in Parent
 			elif isSun:
 				Game_Scene.call_deferred("_on_Sun_asteroid_hit")
+				SoundScene.get_node("PlanetDestroy").call_deferred("play")
 				pass
 			# Else Asteroid Hit Planet -> Planet go Boom Boom!
 			else:
@@ -252,6 +255,7 @@ func _on_PowerUp_Timer_timeout() -> void:
 	isSun = false
 	$Planet/AnimatedSprite.play(default_Planet_Sprite)
 	$Planet/AnimatedSprite.scale = Vector2(1, 1)
+	SoundScene.get_node("PowerDown").play()
 	pass # Replace with function body.
 
 
