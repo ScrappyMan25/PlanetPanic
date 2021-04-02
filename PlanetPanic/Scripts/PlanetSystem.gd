@@ -162,7 +162,6 @@ func PowerUp(type : int) -> void:
 #	5	Shield,
 		5:
 			# Set property to true # TODO
-			$PowerUp_Timer.start()
 			$Planet/ShieldParticles.show()
 			isShield = true
 			pass
@@ -209,13 +208,16 @@ func _on_Planet_area_entered(_area: Area2D) -> void:
 		#Asteroid
 		0:
 			_area.get_parent().queue_free()
+			# If Shield -> Deactivate Shield
+			if isShield:
+				isShield = false
+				$Planet/ShieldParticles.hide()
 			# If Sun PowerUp -> Call sunAsteroid Hit in Parent
-			if isSun:
+			elif isSun:
 				Game_Scene.call_deferred("_on_Sun_asteroid_hit")
 				pass
-			# If Shield -> Do nothing destroy asteroid
 			# Else Asteroid Hit Planet -> Planet go Boom Boom!
-			elif !isShield:
+			else:
 				SoundScene.get_node("PlanetDestroy").call_deferred("play")
 				emit_signal("planetDestroyed", Radius)
 				queue_free()
@@ -241,10 +243,8 @@ func _on_PowerUp_Timer_timeout() -> void:
 	#PowerUp Expires
 	Game_Scene.set_deferred("ScoreMultiplier", 1)
 	isSun = false
-	isShield = false
 	$Planet/AnimatedSprite.play(default_Planet_Sprite)
 	$Planet/AnimatedSprite.scale = Vector2(1, 1)
-	$Planet/ShieldParticles.hide()
 	pass # Replace with function body.
 
 
