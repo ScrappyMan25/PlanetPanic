@@ -82,7 +82,6 @@ func _on_PauseButton_pressed(): #When pause button is clicked. Pause everything 
 #	SoundScene.get_node("Select").play()
 	set_visibility(true)
 	$PauseButton.hide()
-	$SunMeterBar.hide()
 	get_tree().paused = true
 	pass
 
