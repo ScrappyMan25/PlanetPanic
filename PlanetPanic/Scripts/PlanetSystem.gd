@@ -52,9 +52,9 @@ func _ready() -> void:
 	Game_Scene = get_parent()
 	SoundScene = Game_Scene.get_node("SoundScene")
 	
-	#TODO
+	#TODOs
 	#SetSprite / Animation Sprite
-	default_Planet_Sprite = (randi() % 8) as String
+	default_Planet_Sprite = (randi() % 15) as String
 	$Planet/AnimatedSprite.play(default_Planet_Sprite)
 	
 	#Connect Signals
