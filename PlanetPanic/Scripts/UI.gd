@@ -31,7 +31,7 @@ func _process(_delta: float) -> void:
 func update_score(score : int) -> void:
 	#Change the text of score lable
 	$Score.text = "SCORE: " + score as String
-#	$FinalScore.text = score as String
+	$FinalScore.text = score as String
 	pass
 
 func setPowerUpSprite(_type : int) -> void:
@@ -72,7 +72,8 @@ func game_Over():
 		pass
 	$PauseButton.hide()
 	$SunMeterBar.hide()
-#	$FinalScore.show()
+	$Score.hide()
+	$FinalScore.show()
 	pass
 
 #Signals
