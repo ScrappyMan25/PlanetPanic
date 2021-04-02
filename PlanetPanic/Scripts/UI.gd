@@ -24,10 +24,14 @@ func update_score(score : int) -> void:
 	$Score.text = "SCORE: " + score as String
 	pass
 
-func set_visibility(is_visible):
+func set_visibility(_is_visible):
 	for node in get_children():#look for all child node and hide if its not in Interface
 		if node.name == "Button":
-			node.visible = is_visible
+#			node.visible = is_visible
+			if _is_visible:
+				node.show()
+			else:
+				node.hide()
 		pass
 	pass
 
@@ -55,7 +59,7 @@ func game_Over():
 #Signals
 
 func _on_PauseButton_pressed(): #When pause button is clicked. Pause everything and vice versa (like a on/off switch)
-	SoundScene.get_node("Select").play()
+#	SoundScene.get_node("Select").play()
 	set_visibility(true)
 	$PauseButton.hide()
 	get_tree().paused = true
@@ -78,7 +82,7 @@ func _on_Restart_pressed():
 	pass # Replace with function body.
 
 func _on_MainMenu_pressed():
-	SoundScene.get_node("Select").play()
+#	SoundScene.get_node("Select").play()
 	var err = get_tree().change_scene("res://Scenes/TitleScreen.tscn")
 	if err:
 		print(err)
@@ -103,7 +107,8 @@ func _on_DoublePointsWish_pressed() -> void:
 
 
 func _on_FlameAnim_timeout() -> void:
-	$SunFlames1.visible = !$SunFlames1.visible 
-	$SunFlames2.visible = !$SunFlames2.visible 
+	var truth : bool = $SunFlames1.visible
+	$SunFlames1.visible = !truth 
+	$SunFlames2.visible = truth 
 	$FlameAnim.start()
 	pass # Replace with function body.

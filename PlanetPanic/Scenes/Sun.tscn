@@ -199,7 +199,7 @@ script = ExtResource( 2 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 33 )
 animation = "Sun_eat"
-frame = 6
+frame = 5
 playing = true
 
 [node name="Sun_Area" type="Area2D" parent="."]
