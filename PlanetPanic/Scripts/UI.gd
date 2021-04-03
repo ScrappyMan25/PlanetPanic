@@ -96,7 +96,7 @@ func _on_Continue_pressed(): #Unpause everyting when the continue button is clic
 	$PauseButton.show()
 	$SunMeterBar.show()
 	$Blur.hide()
-	$SunMeterBar/FlameAnim.stop()
+	$SunMeterBar/FlameAnim.start()
 	SoundScene.get_node("Select").play()
 	get_tree().paused = false
 	set_visibility(false)
