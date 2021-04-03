@@ -22,7 +22,7 @@ func _ready():
 		pass
 	$WishingStar.hide()
 	
-	
+	$SunMeterBar/FlameAnimation.play()
 	
 	pass
 
@@ -60,13 +60,11 @@ func ShootingStarUI(planetRef : Node2D) -> void:
 	get_tree().paused = true
 	$WishingStar.show()
 	$PauseButton.hide()
-	$HowToButton.hide()
 	PlanetReference = planetRef
 	pass
 
 func PowerUpSelected(_powerUp : int) -> void:
 	$PauseButton.show()
-	$HowToButton.show()
 	$WishingStar.hide()
 	get_tree().paused = false
 	PlanetReference.call_deferred("PowerUp", _powerUp)
@@ -83,7 +81,6 @@ func game_Over():
 	$Score.hide()
 	$FinalScore.show()
 	$Blur.show()
-	$HowToButton.hide()
 	pass
 
 func add_Interactable_bbCode() -> void:
@@ -95,20 +92,15 @@ func _on_PauseButton_pressed(): #When pause button is clicked. Pause everything 
 #	SoundScene.get_node("Select").play()
 	set_visibility(true)
 	$PauseButton.hide()
-	$HowToButton.hide()
 	$Blur.show()
 	get_tree().paused = true
-	$SunMeterBar/FlameAnim.stop()
 	$SunMeterBar/FlameAnimation.stop()
-#	SoundScene.get_node("")
 	pass
 
 func _on_Continue_pressed(): #Unpause everyting when the continue button is clicked
 	$PauseButton.show()
-	$HowToButton.show()
 	$SunMeterBar.show()
 	$Blur.hide()
-	$SunMeterBar/FlameAnim.start()
 	$SunMeterBar/FlameAnimation.play()
 	SoundScene.get_node("Select").play()
 	get_tree().paused = false
@@ -145,29 +137,8 @@ func _on_DoublePointsWish_pressed() -> void:
 	PowerUpSelected(1)
 	pass # Replace with function body.
 
-func _on_FlameAnim_timeout() -> void:
-	var truth : bool = $SunMeterBar/SunFlames1.visible
-	$SunMeterBar/SunFlames1.visible = !truth
-	$SunMeterBar/SunFlames2.visible = truth
-	$SunMeterBar/FlameAnim.start()
-	$SunMeterBar/FlameAnimation.play()
-	pass # Replace with function body.
-
 func _on_SpriteFadeTimer_timeout() -> void:
 	$SunMeterBar/PowerUpDisplay.modulate.a8 = 0
 	get_parent().set_deferred("ScoreMultiplier", 1)
 	pass # Replace with function body.
 
-
-func _on_HowToButton_pressed():
-	if get_tree().paused == false:
-		$PauseButton.hide()
-		$HowTo.show()
-		get_tree().paused = true
-		$SunMeterBar/FlameAnim.stop()
-	else:
-		$PauseButton.show()
-		$HowTo.hide()
-		get_tree().paused = false
-		$SunMeterBar/FlameAnim.start()
-	pass # Replace with function body.

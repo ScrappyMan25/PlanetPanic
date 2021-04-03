@@ -1,0 +1,389 @@
+[gd_scene load_steps=28 format=2]
+
+[ext_resource path="res://pixel-emulator-font/PixelEmulator-xq08.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/Game_Assets/Power-Ups/Coins/ScreenWipeCoin.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Game_Assets/Power-Ups/Wishing Star.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Game_Assets/Power-Ups/Coins/ExtraPlanetCoin.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Game_Assets/Power-Ups/Coins/MiniSunCoin.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Game_Assets/Power-Ups/Coins/ReverseOrbitCoin.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Game_Assets/Power-Ups/Coins/ShieldCoin.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Game_Assets/Power-Ups/Coins/DoublePoints.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Game_Assets/Power-Ups/Coins/SpeedUpOrbit.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Game_Assets/UI/HowToTab.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Game_Assets/UI/HowToTab2.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Game_Assets/Power-Ups/Coins/SpeedDownOrbit.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Game_Assets/UI/HowToBackground..png" type="Texture" id=13]
+[ext_resource path="res://Assets/Game_Assets/BackButton.png" type="Texture" id=14]
+[ext_resource path="res://Scripts/HowTo.gd" type="Script" id=15]
+[ext_resource path="res://Assets/Game_Assets/UI/HowToBackground2png.png" type="Texture" id=16]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 10 )
+region_rect = Rect2( 0, 0, 682, 384 )
+margin_left = 10.0
+margin_right = 10.0
+expand_margin_top = 4.0
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 11 )
+region_rect = Rect2( 0, 0, 682, 384 )
+margin_left = 10.0
+margin_right = 10.0
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 10
+extra_spacing_char = 1
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxTexture" id=12]
+texture = ExtResource( 13 )
+region_rect = Rect2( 0, 0, 682, 384 )
+margin_left = 10.0
+margin_right = 10.0
+
+[sub_resource type="StyleBoxTexture" id=13]
+texture = ExtResource( 16 )
+region_rect = Rect2( 0, 0, 682, 384 )
+margin_left = 10.0
+margin_right = 10.0
+
+[sub_resource type="StyleBoxEmpty" id=14]
+
+[sub_resource type="DynamicFont" id=9]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=10]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=11]
+extra_spacing_top = 1
+extra_spacing_char = 1
+font_data = ExtResource( 1 )
+
+[node name="HowTo" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HowToUi" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 168.0
+margin_top = 48.0
+margin_right = -174.0
+margin_bottom = -144.0
+rect_scale = Vector2( 1, 1.3 )
+texture = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TabContainer" type="TabContainer" parent="HowToUi"]
+anchor_left = 0.07
+anchor_top = 0.08
+anchor_right = 0.927
+anchor_bottom = 0.929
+margin_left = 48.26
+margin_top = 6.20307
+margin_right = -128.214
+margin_bottom = -30.813
+rect_scale = Vector2( 1.2, 1.09231 )
+custom_styles/tab_fg = SubResource( 1 )
+custom_styles/tab_bg = SubResource( 2 )
+custom_styles/panel = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color_bg = Color( 0.152941, 0.152941, 0.211765, 1 )
+custom_colors/font_color_fg = Color( 1, 1, 1, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Basics" type="Control" parent="HowToUi/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 30.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HowToUi/TabContainer/Basics"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 6.66666
+margin_top = 15.0704
+margin_right = 14.6667
+margin_bottom = -6.3662
+size_flags_horizontal = 4
+custom_fonts/normal_font = SubResource( 5 )
+text = "Move the planets across their orbit in order to avoid them being destroyed.
+
+If you have no remaining planets, the game will.
+
+Ever time the sun eats an asteroid you get 10 points.
+
+The sun gains heat after eating an asteroid which can be spent to shoot fireballs to destroy asteroids for 50 points.
+
+Collect Power ups to help you out.
+
+The score increments each second multiplied by the current total of planets.
+
+Go for as long as you can!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Interactables" type="Control" parent="HowToUi/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 30.0
+
+[node name="InteractableTabContainer" type="TabContainer" parent="HowToUi/TabContainer/Interactables"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 4.0
+margin_bottom = 3.05176e-05
+custom_styles/tab_fg = SubResource( 12 )
+custom_styles/tab_bg = SubResource( 13 )
+custom_styles/panel = SubResource( 14 )
+custom_fonts/font = SubResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Global" type="Control" parent="HowToUi/TabContainer/Interactables/InteractableTabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 30.0
+
+[node name="ExtraPlanetCoin" type="TextureRect" parent="HowToUi/TabContainer/Interactables/InteractableTabContainer/Global"]
+margin_left = -6.66667
+margin_top = 97.7465
+margin_right = 57.3333
+margin_bottom = 161.746
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HowToUi/TabContainer/Interactables/InteractableTabContainer/Global/ExtraPlanetCoin"]
+margin_left = 80.0
+margin_top = 11.2676
+margin_right = 423.0
+margin_bottom = 77.2676
+custom_fonts/font = SubResource( 10 )
+text = "Extra Planet - puts a planet
+ into the solar system
+"
+align = 1
+
+[node name="DoublePointsCoin" type="TextureRect" parent="HowToUi/TabContainer/Interactables/InteractableTabContainer/Global"]
+margin_left = -6.66667
+margin_top = 13.2394
+margin_right = 57.3333
+margin_bottom = 77.2394
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HowToUi/TabContainer/Interactables/InteractableTabContainer/Global/DoublePointsCoin"]
+margin_left = 73.3333
+margin_top = 11.2676
+margin_right = 451.333
+margin_bottom = 80.2676
+custom_fonts/font = SubResource( 11 )
+text = "Double Points - Doubles all 
+points earned for a duration
+"
+align = 1
+
+[node name="Local" type="Control" parent="HowToUi/TabContainer/Interactables/InteractableTabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 30.0
+
+[node name="Shield" type="TextureRect" parent="HowToUi/TabContainer/Interactables/InteractableTabContainer/Local"]
+margin_left = -13.3333
+margin_top = -7.66206
+margin_right = 50.6667
+margin_bottom = 56.3379
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HowToUi/TabContainer/Interactables/InteractableTabContainer/Local/Shield"]
+margin_left = 73.3333
+margin_top = 16.9014
+margin_right = 425.333
+margin_bottom = 82.9014
+custom_fonts/font = SubResource( 10 )
+text = "Shield - Protects the planet 
+for 1 hit
+"
+align = 1
+
+[node name="ReverseOrbit" type="TextureRect" parent="HowToUi/TabContainer/Interactables/InteractableTabContainer/Local"]
+margin_left = -13.3333
+margin_top = 48.6758
+margin_right = 50.6667
+margin_bottom = 112.676
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HowToUi/TabContainer/Interactables/InteractableTabContainer/Local/ReverseOrbit"]
+margin_left = 80.0
+margin_top = 16.9014
+margin_right = 426.0
+margin_bottom = 82.9014
+custom_fonts/font = SubResource( 10 )
+text = "Reverse Orbit - Reverses the
+ current direction of orbit 
+"
+align = 1
+
+[node name="SlowOrbit" type="TextureRect" parent="HowToUi/TabContainer/Interactables/InteractableTabContainer/Local"]
+margin_left = -13.3333
+margin_top = 105.014
+margin_right = 50.6667
+margin_bottom = 169.014
+texture = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HowToUi/TabContainer/Interactables/InteractableTabContainer/Local/SlowOrbit"]
+margin_left = 73.3333
+margin_top = 16.9014
+margin_right = 398.333
+margin_bottom = 82.9014
+custom_fonts/font = SubResource( 10 )
+text = "Slower Orbit - Slows down 
+current orbit speed
+"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FastOrbit" type="TextureRect" parent="HowToUi/TabContainer/Interactables/InteractableTabContainer/Local"]
+margin_left = -13.3333
+margin_top = 161.352
+margin_right = 50.6667
+margin_bottom = 225.352
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HowToUi/TabContainer/Interactables/InteractableTabContainer/Local/FastOrbit"]
+margin_left = 80.0
+margin_top = 16.9014
+margin_right = 388.0
+margin_bottom = 82.9014
+custom_fonts/font = SubResource( 10 )
+text = "Faster Orbit - Speeds up 
+current orbit speed
+"
+align = 1
+
+[node name="Deluxe" type="Control" parent="HowToUi/TabContainer/Interactables/InteractableTabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 30.0
+
+[node name="ScreenWipe" type="TextureRect" parent="HowToUi/TabContainer/Interactables/InteractableTabContainer/Deluxe"]
+margin_left = -13.3333
+margin_top = 1.97182
+margin_right = 50.6667
+margin_bottom = 65.9718
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HowToUi/TabContainer/Interactables/InteractableTabContainer/Deluxe/ScreenWipe"]
+margin_left = 20.0
+margin_top = 11.2676
+margin_right = 510.0
+margin_bottom = 54.2676
+custom_fonts/font = SubResource( 10 )
+text = "Screen Wipe - Clears the screen 
+of all Asteroids (Bonus Points)"
+align = 1
+
+[node name="MiniSun" type="TextureRect" parent="HowToUi/TabContainer/Interactables/InteractableTabContainer/Deluxe"]
+margin_left = -13.3333
+margin_top = 75.2113
+margin_right = 50.6667
+margin_bottom = 139.211
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HowToUi/TabContainer/Interactables/InteractableTabContainer/Deluxe/MiniSun"]
+margin_left = 60.0
+margin_top = 16.9014
+margin_right = 457.0
+margin_bottom = 59.9014
+custom_fonts/font = SubResource( 10 )
+text = " Mini Sun - Turns planet into a 
+sun which can eat asteroids"
+align = 1
+
+[node name="ShootingStar" type="TextureRect" parent="HowToUi/TabContainer/Interactables/InteractableTabContainer/Deluxe"]
+margin_left = -6.66667
+margin_top = 148.451
+margin_right = 57.3333
+margin_bottom = 212.451
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HowToUi/TabContainer/Interactables/InteractableTabContainer/Deluxe/ShootingStar"]
+margin_left = 66.6667
+margin_top = 16.9014
+margin_right = 463.667
+margin_bottom = 59.9014
+custom_fonts/font = SubResource( 10 )
+text = "Shooting Star - Grants a wish 
+(choose a power-up)"
+align = 1
+
+[node name="Sun" type="Control" parent="HowToUi/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 30.0
+
+[node name="TextureRect3" type="TextureRect" parent="HowToUi/TabContainer/Sun"]
+margin_left = 173.333
+margin_top = 65.7746
+margin_right = 237.333
+margin_bottom = 129.775
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Close" type="TextureButton" parent="."]
+anchor_left = 0.435
+anchor_top = 0.87
+anchor_right = 0.435
+anchor_bottom = 0.87
+margin_right = 40.0
+margin_bottom = 40.0
+texture_normal = ExtResource( 14 )
+[connection signal="pressed" from="Close" to="." method="_on_Close_pressed"]

@@ -52,10 +52,12 @@ func _ready() -> void:
 	Game_Scene = get_parent()
 	SoundScene = Game_Scene.get_node("SoundScene")
 	
-	#TODOs
 	#SetSprite / Animation Sprite
 	default_Planet_Sprite = (randi() % 22) as String
 	$Planet/AnimatedSprite.play(default_Planet_Sprite)
+	
+	#Shield On Spawn
+	PowerUp(10)
 	
 	#Connect Signals
 	var err = connect("planetDestroyed", get_parent(), "_on_planetDestroyed")
@@ -79,11 +81,19 @@ func _process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if (event is InputEventMouseButton) && (mouseInArea):
-		control = event.is_pressed()
+#		control = event.is_pressed()
+		if event.is_pressed():
+			control = true
+		elif !event.is_pressed():
+			control = false
 		pass
 	elif (event is InputEventScreenTouch) && (mouseInArea):
-		var _input = event.position - (get_viewport_rect().size/2)
-		control =  event.is_pressed()
+#		var _input = event.position - (get_viewport_rect().size/2)
+#		control =  event.is_pressed()
+		if event.is_pressed():
+			control = true
+		elif !event.is_pressed():
+			control = false
 		pass
 	elif (event is InputEventScreenDrag) && control:
 		var input = event.position - (get_viewport_rect().size /2)
@@ -250,10 +260,12 @@ func _on_Planet_area_entered(_area: Area2D) -> void:
 
 func _on_Planet_mouse_entered() -> void:
 	mouseInArea = true
+	get_parent().MouseInPlanet = true
 	pass # Replace with function body.
 
 func _on_Planet_mouse_exited() -> void:
 	mouseInArea = false
+	get_parent().MouseInPlanet = false
 	pass # Replace with function body.
 
 func _on_PowerUp_Timer_timeout() -> void:
@@ -268,6 +280,7 @@ func _on_PowerUp_Timer_timeout() -> void:
 func _on_Planet_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventScreenTouch:# || event is InputEventMouseButton:
 		control = true
+		
 	pass # Replace with function body.
 
 func _on_Fade_ready():

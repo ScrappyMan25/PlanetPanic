@@ -55,8 +55,16 @@ func FireBall(I_Pos : Vector2) -> void:
 			$AnimatedSprite.play("Sun_Spit")
 	pass
 
-#Signals
 
+##func _input(event: InputEvent) -> void:
+#func _unhandled_input(event: InputEvent) -> void:
+#	if (event is InputEventScreenTouch || event is InputEventMouseButton) && !get_parent().MouseInPlanet:
+#		if !event.is_pressed():
+#			FireBall(event.position - (get_viewport_rect().size /2))
+#		pass
+#	pass
+
+#Signals
 func _on_Sun_Area_area_entered(_area: Area2D) -> void:
 #	print(_area.get_parent().name)
 	if !"FireBall" in _area.get_parent().name:

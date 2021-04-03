@@ -5,6 +5,7 @@ var GameScene : PackedScene = preload("res://Scenes/Game_Scene.tscn")
 
 func _ready(): #Looks through all the button exist and load the scene when clicked
 	$TitleScreenMusic.play()
+	$HowTo.hide()
 	pass # Replace with function body.
 
 #Load scene
@@ -27,4 +28,9 @@ func _on_Play_pressed() -> void:
 func _on_Quit_pressed() -> void:
 	#Wuman to add quit code here
 	get_tree().quit()
+	pass # Replace with function body.
+
+
+func _on_HowToButton_pressed() -> void:
+	$HowTo.show()
 	pass # Replace with function body.

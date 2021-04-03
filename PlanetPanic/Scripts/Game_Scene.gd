@@ -5,6 +5,8 @@ var number_of_planets : int = 0
 var ScoreMultiplier : int = 1
 var limit : int = 500
 
+var MouseInPlanet : bool = false
+
 var PlanetSystem : PackedScene = preload("res://Scenes/PlanetSystem.tscn")
 
 var PlanetRadius : Array = [
@@ -58,6 +60,21 @@ func _process(delta: float) -> void:
 		ScreenShake.trauma = max(ScreenShake.trauma - ScreenShake.decay * delta, 0)
 		shake()
 		pass
+	pass
+
+func _unhandled_input(event: InputEvent) -> void:#input(event: InputEvent) -> void:
+	var control : bool = false
+	if event is InputEventMouseButton:
+		for p in get_children():
+			if "PlanetSystem" in p.name :
+				if p.control == true:
+					control = true
+				pass
+			pass
+		pass
+		if !control && !MouseInPlanet:
+			$Sun.call_deferred("FireBall", event.position - $Camera2D.get_viewport_rect().size/2)
+			pass
 	pass
 
 func add_trauma(amount) -> void:
