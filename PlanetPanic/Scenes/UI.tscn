@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://pixel-emulator-font/PixelEmulator-xq08.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Game_Assets/SettingsButton.png" type="Texture" id=2]
@@ -25,64 +25,65 @@
 [ext_resource path="res://Assets/Game_Assets/Power-Ups/Coins/ScreenWipeCoin.png" type="Texture" id=23]
 [ext_resource path="res://Assets/Game_Assets/Power-Ups/Coins/SpeedDownOrbit.png" type="Texture" id=24]
 [ext_resource path="res://Assets/Game_Assets/Power-Ups/Coins/SpeedUpOrbit.png" type="Texture" id=25]
+[ext_resource path="res://Assets/Game_Assets/InformationButton.png" type="Texture" id=26]
 
-[sub_resource type="StyleBoxTexture" id=5]
+[sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 18 )
 region_rect = Rect2( 0, 0, 682, 384 )
 margin_left = 10.0
 margin_right = 10.0
 expand_margin_top = 4.0
 
-[sub_resource type="StyleBoxTexture" id=9]
+[sub_resource type="StyleBoxTexture" id=2]
 texture = ExtResource( 19 )
 region_rect = Rect2( 0, 0, 682, 384 )
 margin_left = 10.0
 margin_right = 10.0
 
-[sub_resource type="StyleBoxEmpty" id=7]
+[sub_resource type="StyleBoxEmpty" id=3]
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=4]
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=10]
+[sub_resource type="DynamicFont" id=5]
 size = 10
 extra_spacing_char = 1
 font_data = ExtResource( 1 )
 
-[sub_resource type="StyleBoxEmpty" id=11]
+[sub_resource type="StyleBoxEmpty" id=6]
 content_margin_left = 10.0
 content_margin_right = 10.0
 
-[sub_resource type="StyleBoxEmpty" id=12]
+[sub_resource type="StyleBoxEmpty" id=7]
 content_margin_left = 10.0
 content_margin_right = 10.0
 
-[sub_resource type="StyleBoxEmpty" id=13]
+[sub_resource type="StyleBoxEmpty" id=8]
 
-[sub_resource type="DynamicFont" id=14]
+[sub_resource type="DynamicFont" id=9]
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=15]
+[sub_resource type="DynamicFont" id=10]
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=16]
+[sub_resource type="DynamicFont" id=11]
 extra_spacing_top = 1
 extra_spacing_char = 1
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=12]
 size = 24
 outline_color = Color( 0.376471, 0.376471, 0.439216, 1 )
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=13]
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=14]
 size = 32
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=15]
 size = 48
 font_data = ExtResource( 1 )
 
@@ -91,6 +92,7 @@ pause_mode = 2
 script = ExtResource( 3 )
 
 [node name="HowTo" type="Control" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -120,10 +122,10 @@ margin_top = 6.20307
 margin_right = -128.214
 margin_bottom = -30.813
 rect_scale = Vector2( 1.2, 1.09231 )
-custom_styles/tab_fg = SubResource( 5 )
-custom_styles/tab_bg = SubResource( 9 )
-custom_styles/panel = SubResource( 7 )
-custom_fonts/font = SubResource( 8 )
+custom_styles/tab_fg = SubResource( 1 )
+custom_styles/tab_bg = SubResource( 2 )
+custom_styles/panel = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color_bg = Color( 0.152941, 0.152941, 0.211765, 1 )
 custom_colors/font_color_fg = Color( 1, 1, 1, 1 )
 __meta__ = {
@@ -131,7 +133,6 @@ __meta__ = {
 }
 
 [node name="Basics" type="Control" parent="HowTo/TextureRect/TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 30.0
@@ -144,7 +145,7 @@ margin_top = 15.0704
 margin_right = 14.6667
 margin_bottom = -6.3662
 size_flags_horizontal = 4
-custom_fonts/normal_font = SubResource( 10 )
+custom_fonts/normal_font = SubResource( 5 )
 text = "Move the planets across their orbit in order to avoid them being destroyed.
 
 If you have no remaining planets, the game will.
@@ -163,6 +164,7 @@ __meta__ = {
 }
 
 [node name="Interactables" type="Control" parent="HowTo/TextureRect/TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 30.0
@@ -170,16 +172,15 @@ margin_top = 30.0
 [node name="InteractableTabContainer" type="TabContainer" parent="HowTo/TextureRect/TabContainer/Interactables"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_styles/tab_fg = SubResource( 11 )
-custom_styles/tab_bg = SubResource( 12 )
-custom_styles/panel = SubResource( 13 )
-custom_fonts/font = SubResource( 14 )
+custom_styles/tab_fg = SubResource( 6 )
+custom_styles/tab_bg = SubResource( 7 )
+custom_styles/panel = SubResource( 8 )
+custom_fonts/font = SubResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Global" type="Control" parent="HowTo/TextureRect/TabContainer/Interactables/InteractableTabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 30.0
@@ -199,7 +200,7 @@ margin_left = 80.0
 margin_top = 11.2676
 margin_right = 423.0
 margin_bottom = 77.2676
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 10 )
 text = "Extra Planet - puts a planet
  into the solar system
 "
@@ -220,7 +221,7 @@ margin_left = 73.3333
 margin_top = 11.2676
 margin_right = 451.333
 margin_bottom = 80.2676
-custom_fonts/font = SubResource( 16 )
+custom_fonts/font = SubResource( 11 )
 text = "Double Points - Doubles all 
 points earned for a duration
 "
@@ -247,7 +248,7 @@ margin_left = 73.3333
 margin_top = 16.9014
 margin_right = 425.333
 margin_bottom = 82.9014
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 10 )
 text = "Shield - Protects the planet 
 for 1 hit
 "
@@ -268,7 +269,7 @@ margin_left = 80.0
 margin_top = 16.9014
 margin_right = 426.0
 margin_bottom = 82.9014
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 10 )
 text = "Reverse Orbit - Reverses the
  current direction of orbit 
 "
@@ -289,7 +290,7 @@ margin_left = 73.3333
 margin_top = 16.9014
 margin_right = 398.333
 margin_bottom = 82.9014
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 10 )
 text = "Slower Orbit - Slows down 
 current orbit speed
 "
@@ -313,13 +314,14 @@ margin_left = 80.0
 margin_top = 16.9014
 margin_right = 388.0
 margin_bottom = 82.9014
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 10 )
 text = "Faster Orbit - Speeds up 
 current orbit speed
 "
 align = 1
 
 [node name="Deluxe" type="Control" parent="HowTo/TextureRect/TabContainer/Interactables/InteractableTabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 30.0
@@ -339,7 +341,7 @@ margin_left = 20.0
 margin_top = 11.2676
 margin_right = 510.0
 margin_bottom = 54.2676
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 10 )
 text = "Screen Wipe - Clears the screen 
 of all Asteroids (Bonus Points)"
 align = 1
@@ -359,7 +361,7 @@ margin_left = 60.0
 margin_top = 16.9014
 margin_right = 457.0
 margin_bottom = 59.9014
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 10 )
 text = " Mini Sun - Turns planet into a 
 sun which can eat asteroids"
 align = 1
@@ -379,7 +381,7 @@ margin_left = 66.6667
 margin_top = 16.9014
 margin_right = 463.667
 margin_bottom = 59.9014
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 10 )
 text = "Shooting Star - Grants a wish 
 (choose a power-up)"
 align = 1
@@ -407,7 +409,7 @@ anchor_right = 0.022
 anchor_bottom = 0.033
 margin_right = 244.0
 margin_bottom = 29.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 12 )
 custom_colors/font_color_shadow = Color( 0.376471, 0.376471, 0.439216, 1 )
 custom_constants/shadow_offset_x = 0
 custom_constants/shadow_offset_y = 2
@@ -530,7 +532,7 @@ visible = false
 margin_right = 40.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 0, 40 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 13 )
 text = "Continue"
 align = 1
 valign = 1
@@ -550,7 +552,7 @@ visible = false
 margin_right = 40.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 98, 40 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 13 )
 text = "Restart"
 align = 1
 valign = 1
@@ -570,7 +572,7 @@ visible = false
 margin_right = 40.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 98, 40 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 13 )
 text = "Restart"
 align = 1
 valign = 1
@@ -579,12 +581,12 @@ __meta__ = {
 }
 
 [node name="PauseButton" type="TextureButton" parent="."]
-visible = false
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -128.0
-margin_top = -0.707108
-margin_bottom = 63.2929
+margin_left = -125.773
+margin_top = -1.15256
+margin_right = 2.22729
+margin_bottom = 62.8475
 texture_normal = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -610,7 +612,7 @@ visible = false
 margin_right = 40.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 98, 40 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 13 )
 text = "Restart"
 align = 1
 valign = 1
@@ -638,7 +640,7 @@ visible = false
 margin_right = 40.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 98, 40 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 13 )
 text = "Restart"
 align = 1
 valign = 1
@@ -656,7 +658,7 @@ margin_left = -512.0
 margin_top = -145.5
 margin_right = 512.0
 margin_bottom = 145.5
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 14 )
 custom_colors/font_color_shadow = Color( 0.376471, 0.376471, 0.439216, 1 )
 custom_constants/shadow_offset_x = 0
 custom_constants/shadow_offset_y = 2
@@ -713,10 +715,22 @@ margin_left = -92.5
 margin_top = 100.0
 margin_right = 92.5
 margin_bottom = 28.5
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 15 )
 text = "Score"
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HowToButton" type="TextureButton" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -254.0
+margin_top = 6.0
+margin_right = -126.0
+margin_bottom = 55.0
+texture_normal = ExtResource( 26 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -731,3 +745,4 @@ __meta__ = {
 [connection signal="pressed" from="WishingStar/ExtraPlanetWish" to="." method="_on_ExtraPlanetWish_pressed"]
 [connection signal="pressed" from="WishingStar/ShieldWish" to="." method="_on_ShieldWish_pressed"]
 [connection signal="pressed" from="WishingStar/DoublePointsWish" to="." method="_on_DoublePointsWish_pressed"]
+[connection signal="pressed" from="HowToButton" to="." method="_on_HowToButton_pressed"]

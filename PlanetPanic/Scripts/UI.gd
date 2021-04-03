@@ -60,11 +60,13 @@ func ShootingStarUI(planetRef : Node2D) -> void:
 	get_tree().paused = true
 	$WishingStar.show()
 	$PauseButton.hide()
+	$HowToButton.hide()
 	PlanetReference = planetRef
 	pass
 
 func PowerUpSelected(_powerUp : int) -> void:
 	$PauseButton.show()
+	$HowToButton.show()
 	$WishingStar.hide()
 	get_tree().paused = false
 	PlanetReference.call_deferred("PowerUp", _powerUp)
@@ -92,6 +94,7 @@ func _on_PauseButton_pressed(): #When pause button is clicked. Pause everything 
 #	SoundScene.get_node("Select").play()
 	set_visibility(true)
 	$PauseButton.hide()
+	$HowToButton.hide()
 	$Blur.show()
 	get_tree().paused = true
 	$SunMeterBar/FlameAnim.stop()
@@ -100,6 +103,7 @@ func _on_PauseButton_pressed(): #When pause button is clicked. Pause everything 
 
 func _on_Continue_pressed(): #Unpause everyting when the continue button is clicked
 	$PauseButton.show()
+	$HowToButton.show()
 	$SunMeterBar.show()
 	$Blur.hide()
 	$SunMeterBar/FlameAnim.start()
@@ -147,4 +151,18 @@ func _on_FlameAnim_timeout() -> void:
 
 func _on_SpriteFadeTimer_timeout() -> void:
 	$SunMeterBar/PowerUpDisplay.modulate.a8 = 0
+	pass # Replace with function body.
+
+
+func _on_HowToButton_pressed():
+	if get_tree().paused == false:
+		$PauseButton.hide()
+		$HowTo.show()
+		get_tree().paused = true
+		$SunMeterBar/FlameAnim.stop()
+	else:
+		$PauseButton.show()
+		$HowTo.hide()
+		get_tree().paused = false
+		$SunMeterBar/FlameAnim.start()
 	pass # Replace with function body.
