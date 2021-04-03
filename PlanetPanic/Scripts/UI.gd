@@ -83,6 +83,7 @@ func game_Over():
 	$Score.hide()
 	$FinalScore.show()
 	$Blur.show()
+	$HowToButton.hide()
 	pass
 
 func add_Interactable_bbCode() -> void:
