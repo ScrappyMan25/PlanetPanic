@@ -21,7 +21,7 @@
 [ext_resource path="res://Ogg Sounds/spit Sound Effect.ogg" type="AudioStream" id=19]
 [ext_resource path="res://Ogg Sounds/MiniSun.ogg" type="AudioStream" id=20]
 [ext_resource path="res://Ogg Sounds/Reverse Orbit.ogg" type="AudioStream" id=21]
-[ext_resource path="res://Ogg Sounds/Star Pickup.ogg" type="AudioStream" id=22]
+[ext_resource path="res://Ogg Sounds/StarPickup.ogg" type="AudioStream" id=22]
 [ext_resource path="res://Ogg Sounds/Star twinkling(loopable).ogg" type="AudioStream" id=23]
 [ext_resource path="res://Ogg Sounds/rumbling.ogg" type="AudioStream" id=24]
 [ext_resource path="res://Ogg Sounds/SpeedDown2.ogg" type="AudioStream" id=25]
@@ -68,31 +68,31 @@ volume_db = -20.0
 
 [node name="1" type="AudioStreamPlayer" parent="Chomps"]
 stream = ExtResource( 10 )
-volume_db = -20.0
+volume_db = -10.0
 
 [node name="2" type="AudioStreamPlayer" parent="Chomps"]
 stream = ExtResource( 11 )
-volume_db = -20.0
+volume_db = -10.0
 
 [node name="3" type="AudioStreamPlayer" parent="Chomps"]
 stream = ExtResource( 12 )
-volume_db = -20.0
+volume_db = -10.0
 
 [node name="4" type="AudioStreamPlayer" parent="Chomps"]
 stream = ExtResource( 13 )
-volume_db = -20.0
+volume_db = -10.0
 
 [node name="5" type="AudioStreamPlayer" parent="Chomps"]
 stream = ExtResource( 16 )
-volume_db = -20.0
+volume_db = -10.0
 
 [node name="6" type="AudioStreamPlayer" parent="Chomps"]
 stream = ExtResource( 15 )
-volume_db = -20.0
+volume_db = -10.0
 
 [node name="7" type="AudioStreamPlayer" parent="Chomps"]
 stream = ExtResource( 14 )
-volume_db = -20.0
+volume_db = -10.0
 
 [node name="MiniSun" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 20 )
@@ -104,11 +104,11 @@ volume_db = -20.0
 
 [node name="Rumbling" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 24 )
-volume_db = -20.0
+volume_db = -15.0
 
 [node name="ScreenWipe" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 17 )
-volume_db = -20.0
+volume_db = -15.0
 
 [node name="SpeedDown" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 25 )
