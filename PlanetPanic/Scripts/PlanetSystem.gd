@@ -81,19 +81,11 @@ func _process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if (event is InputEventMouseButton) && (mouseInArea):
-#		control = event.is_pressed()
-		if event.is_pressed():
-			control = true
-		elif !event.is_pressed():
-			control = false
+		control = event.is_pressed()
 		pass
 	elif (event is InputEventScreenTouch) && (mouseInArea):
 #		var _input = event.position - (get_viewport_rect().size/2)
-#		control =  event.is_pressed()
-		if event.is_pressed():
-			control = true
-		elif !event.is_pressed():
-			control = false
+		control =  event.is_pressed()
 		pass
 	elif (event is InputEventScreenDrag) && control:
 		var input = event.position - (get_viewport_rect().size /2)

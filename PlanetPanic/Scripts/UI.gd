@@ -34,7 +34,7 @@ func _process(_delta: float) -> void:
 
 func update_score(score : int) -> void:
 	#Change the text of score lable
-	$Score.text = "SCORE: " + score as String
+	$Score.text = score as String
 	$FinalScore.text = score as String
 	pass
 

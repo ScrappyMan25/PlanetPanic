@@ -13,52 +13,52 @@
 [ext_resource path="res://Assets/black_color.png" type="Texture" id=13]
 [ext_resource path="res://Assets/Game_Assets/SunMeter/Heat-gauge-flames.png" type="Texture" id=27]
 
-[sub_resource type="DynamicFont" id=12]
-size = 24
+[sub_resource type="DynamicFont" id=1]
+size = 60
 outline_color = Color( 0.376471, 0.376471, 0.439216, 1 )
 font_data = ExtResource( 1 )
 
-[sub_resource type="AtlasTexture" id=13]
+[sub_resource type="AtlasTexture" id=2]
 flags = 4
 atlas = ExtResource( 27 )
 region = Rect2( 0, 0, 128, 128 )
 
-[sub_resource type="AtlasTexture" id=14]
+[sub_resource type="AtlasTexture" id=3]
 flags = 4
 atlas = ExtResource( 27 )
 region = Rect2( 128, 0, 128, 128 )
 
-[sub_resource type="AtlasTexture" id=15]
+[sub_resource type="AtlasTexture" id=4]
 flags = 4
 atlas = ExtResource( 27 )
 region = Rect2( 0, 128, 128, 128 )
 
-[sub_resource type="AtlasTexture" id=16]
+[sub_resource type="AtlasTexture" id=5]
 flags = 4
 atlas = ExtResource( 27 )
 region = Rect2( 128, 128, 128, 128 )
 
-[sub_resource type="AtlasTexture" id=17]
+[sub_resource type="AtlasTexture" id=6]
 flags = 4
 atlas = ExtResource( 27 )
 region = Rect2( 128, 0, 128, 128 )
 
-[sub_resource type="SpriteFrames" id=18]
+[sub_resource type="SpriteFrames" id=7]
 animations = [ {
-"frames": [ SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 } ]
 
-[sub_resource type="DynamicFont" id=19]
+[sub_resource type="DynamicFont" id=8]
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=20]
+[sub_resource type="DynamicFont" id=9]
 size = 32
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=21]
+[sub_resource type="DynamicFont" id=10]
 size = 48
 font_data = ExtResource( 1 )
 
@@ -71,13 +71,15 @@ anchor_left = 0.022
 anchor_top = 0.033
 anchor_right = 0.022
 anchor_bottom = 0.033
-margin_right = 244.0
-margin_bottom = 29.0
-custom_fonts/font = SubResource( 12 )
+margin_left = 9.472
+margin_top = -11.008
+margin_right = 253.472
+margin_bottom = 36.992
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color_shadow = Color( 0.376471, 0.376471, 0.439216, 1 )
 custom_constants/shadow_offset_x = 0
 custom_constants/shadow_offset_y = 2
-text = "Score: Numbers"
+text = "Numbers"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -109,10 +111,10 @@ __meta__ = {
 [node name="PowerUpDisplay" type="TextureRect" parent="SunMeterBar"]
 anchor_top = 0.838
 anchor_bottom = 0.838
-margin_left = 23.3082
-margin_top = -14.8325
-margin_right = 63.3082
-margin_bottom = 25.1675
+margin_left = 39.2509
+margin_top = 16.2732
+margin_right = 79.2509
+margin_bottom = 56.2732
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -124,7 +126,7 @@ one_shot = true
 [node name="FlameAnimation" type="AnimatedSprite" parent="SunMeterBar"]
 position = Vector2( 960.587, 248.731 )
 scale = Vector2( 1.5, 1.5 )
-frames = SubResource( 18 )
+frames = SubResource( 7 )
 frame = 4
 
 [node name="Blur" type="TextureRect" parent="."]
@@ -167,7 +169,7 @@ visible = false
 margin_right = 40.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 0, 40 )
-custom_fonts/font = SubResource( 19 )
+custom_fonts/font = SubResource( 8 )
 text = "Continue"
 align = 1
 valign = 1
@@ -187,7 +189,7 @@ visible = false
 margin_right = 40.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 98, 40 )
-custom_fonts/font = SubResource( 19 )
+custom_fonts/font = SubResource( 8 )
 text = "Restart"
 align = 1
 valign = 1
@@ -207,7 +209,7 @@ visible = false
 margin_right = 40.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 98, 40 )
-custom_fonts/font = SubResource( 19 )
+custom_fonts/font = SubResource( 8 )
 text = "Restart"
 align = 1
 valign = 1
@@ -247,7 +249,7 @@ visible = false
 margin_right = 40.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 98, 40 )
-custom_fonts/font = SubResource( 19 )
+custom_fonts/font = SubResource( 8 )
 text = "Restart"
 align = 1
 valign = 1
@@ -275,7 +277,7 @@ visible = false
 margin_right = 40.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 98, 40 )
-custom_fonts/font = SubResource( 19 )
+custom_fonts/font = SubResource( 8 )
 text = "Restart"
 align = 1
 valign = 1
@@ -293,7 +295,7 @@ margin_left = -512.0
 margin_top = -145.5
 margin_right = 512.0
 margin_bottom = 145.5
-custom_fonts/font = SubResource( 20 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color_shadow = Color( 0.376471, 0.376471, 0.439216, 1 )
 custom_constants/shadow_offset_x = 0
 custom_constants/shadow_offset_y = 2
@@ -350,7 +352,7 @@ margin_left = -92.5
 margin_top = 100.0
 margin_right = 92.5
 margin_bottom = 28.5
-custom_fonts/font = SubResource( 21 )
+custom_fonts/font = SubResource( 10 )
 text = "Score"
 align = 1
 valign = 1
