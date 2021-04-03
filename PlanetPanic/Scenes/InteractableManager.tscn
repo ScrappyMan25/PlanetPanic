@@ -9,6 +9,7 @@ script = ExtResource( 1 )
 autostart = true
 
 [node name="PowerUp_Spawn_Timer" type="Timer" parent="."]
+wait_time = 8.0
 autostart = true
 [connection signal="timeout" from="Asteroid_Spawn_Timer" to="." method="_on_Asteroid_Spawn_Timer_timeout"]
 [connection signal="timeout" from="PowerUp_Spawn_Timer" to="." method="_on_PowerUp_Spawn_Timer_timeout"]
