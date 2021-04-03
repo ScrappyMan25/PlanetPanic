@@ -117,7 +117,7 @@ func Add_Planet() -> void:
 
 func adjust_Camera_zoom():
 	if PlanetExists.find_last(true) > 3:
-		var zoom_value : float = 1 + 0.10 * (PlanetExists.find_last(true) - 3)
+		var zoom_value : float = 1 + 0.15 * (PlanetExists.find_last(true) - 3)
 		$Camera2D.zoom = Vector2(zoom_value, zoom_value)
 		pass
 	else:

@@ -28,7 +28,7 @@ func _ready():
 
 func _process(_delta: float) -> void:
 	if $SunMeterBar/SpriteFadeTimer.time_left:
-		$SunMeterBar/PowerUpDisplay.modulate.a8 = $SunMeterBar/SpriteFadeTimer.time_left * 51
+		$SunMeterBar/PowerUpDisplay.modulate.a8 = $SunMeterBar/SpriteFadeTimer.time_left * 255/8
 		pass
 	pass
 
@@ -152,6 +152,7 @@ func _on_FlameAnim_timeout() -> void:
 
 func _on_SpriteFadeTimer_timeout() -> void:
 	$SunMeterBar/PowerUpDisplay.modulate.a8 = 0
+	get_parent().set_deferred("ScoreMultiplier", 1)
 	pass # Replace with function body.
 
 

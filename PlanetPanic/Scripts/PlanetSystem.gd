@@ -193,6 +193,11 @@ func PowerUp(type : int) -> void:
 			SoundScene.get_node("SpeedUp").play()
 			Speed += 0.5
 			pass
+#	10	Spawn Shield
+		10:
+			isShield = true
+			$Planet/ShieldParticles.show()
+			$SpawnShieldTimer.start()
 	#PlayPowerUpSoundHere
 	
 	pass
@@ -260,13 +265,16 @@ func _on_PowerUp_Timer_timeout() -> void:
 	SoundScene.get_node("PowerDown").play()
 	pass # Replace with function body.
 
-
 func _on_Planet_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventScreenTouch:# || event is InputEventMouseButton:
 		control = true
 	pass # Replace with function body.
 
-
 func _on_Fade_ready():
 	$Fade.play("Fade")
+	pass # Replace with function body.
+
+func _on_SpawnShieldTimer_timeout() -> void:
+	$Planet/ShieldParticles.hide()
+	isShield = false
 	pass # Replace with function body.
