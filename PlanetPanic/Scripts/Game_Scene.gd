@@ -64,7 +64,7 @@ func _process(delta: float) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:#input(event: InputEvent) -> void:
 	var control : bool = false
-	if event is InputEventMouseButton:
+	if event is InputEventMouseButton || event is InputEventScreenTouch:
 		for p in get_children():
 			if "PlanetSystem" in p.name :
 				if p.control == true:
