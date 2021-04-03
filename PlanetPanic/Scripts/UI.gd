@@ -99,6 +99,7 @@ func _on_PauseButton_pressed(): #When pause button is clicked. Pause everything 
 	$Blur.show()
 	get_tree().paused = true
 	$SunMeterBar/FlameAnim.stop()
+	$SunMeterBar/FlameAnimation.stop()
 #	SoundScene.get_node("")
 	pass
 
@@ -108,6 +109,7 @@ func _on_Continue_pressed(): #Unpause everyting when the continue button is clic
 	$SunMeterBar.show()
 	$Blur.hide()
 	$SunMeterBar/FlameAnim.start()
+	$SunMeterBar/FlameAnimation.play()
 	SoundScene.get_node("Select").play()
 	get_tree().paused = false
 	set_visibility(false)
@@ -148,6 +150,7 @@ func _on_FlameAnim_timeout() -> void:
 	$SunMeterBar/SunFlames1.visible = !truth
 	$SunMeterBar/SunFlames2.visible = truth
 	$SunMeterBar/FlameAnim.start()
+	$SunMeterBar/FlameAnimation.play()
 	pass # Replace with function body.
 
 func _on_SpriteFadeTimer_timeout() -> void:
