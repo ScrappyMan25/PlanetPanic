@@ -5,7 +5,7 @@
 [ext_resource path="res://Scripts/TitleScreen.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/FadeIn.gd" type="Script" id=4]
 [ext_resource path="res://Assets/Game_Assets/Play Button.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Game_Assets/NewLogo_withBG.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Game_Assets/NewLogoFINAL.png" type="Texture" id=6]
 [ext_resource path="res://Scenes/HowTo.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Assets/Game_Assets/InformationButton.png" type="Texture" id=8]
 
@@ -96,14 +96,14 @@ volume_db = -20.0
 [node name="Basics" parent="HowTo/HowToUi/TabContainer" index="0"]
 visible = true
 
-[node name="Interactables" parent="HowTo/HowToUi/TabContainer" index="1"]
+[node name="Sun" parent="HowTo/HowToUi/TabContainer" index="2"]
 visible = false
 
-[node name="Global" parent="HowTo/HowToUi/TabContainer/Interactables/InteractableTabContainer" index="0"]
-visible = true
+[node name="Flames" parent="HowTo/HowToUi/TabContainer/Sun" index="1"]
+frame = 1
 
-[node name="Local" parent="HowTo/HowToUi/TabContainer/Interactables/InteractableTabContainer" index="1"]
-visible = false
+[node name="SunMeter" parent="HowTo/HowToUi/TabContainer/Sun" index="2"]
+frame = 3
 [connection signal="pressed" from="TextureButton/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="TextureButton/HowToButton" to="." method="_on_HowToButton_pressed"]
 [connection signal="fade_finished" from="FadeIn" to="." method="_on_FadeIn_fade_finished"]
