@@ -56,10 +56,12 @@ func set_visibility(_is_visible):
 func ShootingStarUI(planetRef : Node2D) -> void:
 	get_tree().paused = true
 	$WishingStar.show()
+	$PauseButton.hide()
 	PlanetReference = planetRef
 	pass
 
 func PowerUpSelected(_powerUp : int) -> void:
+	$PauseButton.show()
 	$WishingStar.hide()
 	get_tree().paused = false
 	PlanetReference.call_deferred("PowerUp", _powerUp)

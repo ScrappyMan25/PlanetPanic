@@ -54,7 +54,7 @@ func _ready() -> void:
 	
 	#TODOs
 	#SetSprite / Animation Sprite
-	default_Planet_Sprite = (randi() % 15) as String
+	default_Planet_Sprite = (randi() % 22) as String
 	$Planet/AnimatedSprite.play(default_Planet_Sprite)
 	
 	#Connect Signals

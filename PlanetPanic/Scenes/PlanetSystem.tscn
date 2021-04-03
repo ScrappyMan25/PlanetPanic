@@ -26,6 +26,9 @@ Radius = 100
 
 [node name="Planet" parent="." instance=ExtResource( 2 )]
 
+[node name="AnimatedSprite" parent="Planet" index="0"]
+animation = "default"
+
 [node name="ShieldParticles" parent="Planet" index="2"]
 visible = false
 

@@ -123,6 +123,7 @@ stream = ExtResource( 19 )
 volume_db = -20.0
 
 [node name="StarPickup" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 22 )
 volume_db = -20.0
 
