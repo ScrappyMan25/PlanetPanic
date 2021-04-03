@@ -21,6 +21,9 @@ func _ready():
 			pass
 		pass
 	$WishingStar.hide()
+	
+	
+	
 	pass
 
 func _process(_delta: float) -> void:
@@ -80,6 +83,9 @@ func game_Over():
 	$Blur.show()
 	pass
 
+func add_Interactable_bbCode() -> void:
+	pass
+
 #Signals
 
 func _on_PauseButton_pressed(): #When pause button is clicked. Pause everything and vice versa (like a on/off switch)
@@ -120,21 +126,17 @@ func _on_MainMenu_pressed():
 	set_visibility(false)
 	pass # Replace with function body.
 
-
 func _on_ExtraPlanetWish_pressed() -> void:
 	PowerUpSelected(2)
 	pass # Replace with function body.
-
 
 func _on_ShieldWish_pressed() -> void:
 	PowerUpSelected(5)
 	pass # Replace with function body.
 
-
 func _on_DoublePointsWish_pressed() -> void:
 	PowerUpSelected(1)
 	pass # Replace with function body.
-
 
 func _on_FlameAnim_timeout() -> void:
 	var truth : bool = $SunMeterBar/SunFlames1.visible
@@ -142,7 +144,6 @@ func _on_FlameAnim_timeout() -> void:
 	$SunMeterBar/SunFlames2.visible = truth
 	$SunMeterBar/FlameAnim.start()
 	pass # Replace with function body.
-
 
 func _on_SpriteFadeTimer_timeout() -> void:
 	$SunMeterBar/PowerUpDisplay.modulate.a8 = 0
