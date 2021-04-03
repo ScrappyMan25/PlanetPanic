@@ -81,35 +81,35 @@ font_data = ExtResource( 1 )
 size = 12
 font_data = ExtResource( 1 )
 
-[sub_resource type="AtlasTexture" id=14]
+[sub_resource type="AtlasTexture" id=13]
 flags = 4
 atlas = ExtResource( 28 )
 region = Rect2( 0, 0, 128, 128 )
 
-[sub_resource type="AtlasTexture" id=15]
+[sub_resource type="AtlasTexture" id=14]
 flags = 4
 atlas = ExtResource( 28 )
 region = Rect2( 128, 0, 128, 128 )
 
-[sub_resource type="AtlasTexture" id=16]
+[sub_resource type="AtlasTexture" id=15]
 flags = 4
 atlas = ExtResource( 28 )
 region = Rect2( 0, 128, 128, 128 )
 
-[sub_resource type="AtlasTexture" id=17]
+[sub_resource type="AtlasTexture" id=16]
 flags = 4
 atlas = ExtResource( 28 )
 region = Rect2( 128, 128, 128, 128 )
 
-[sub_resource type="SpriteFrames" id=18]
+[sub_resource type="SpriteFrames" id=17]
 animations = [ {
-"frames": [ SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
+"frames": [ SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=13]
+[sub_resource type="SpriteFrames" id=18]
 animations = [ {
 "frames": [ ExtResource( 17 ), ExtResource( 27 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 25 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 26 ) ],
 "loop": true,
@@ -173,7 +173,7 @@ margin_right = 15.0
 margin_bottom = -6.99997
 size_flags_horizontal = 4
 custom_fonts/normal_font = SubResource( 5 )
-text = "Move the planets across their orbit in order to avoid them being destroyed.
+text = "Move the planets across their orbits to avoid them being destroyed by the ASTEROIDS.
 
 If you have no remaining planets, the game will end.
 
@@ -191,7 +191,6 @@ __meta__ = {
 }
 
 [node name="Interactables" type="Control" parent="HowToUi/TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 30.0
@@ -416,6 +415,7 @@ text = "Shooting Star - Grants a wish
 align = 1
 
 [node name="Sun" type="Control" parent="HowToUi/TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 30.0
@@ -426,14 +426,14 @@ margin_top = 20.7041
 margin_right = 426.667
 margin_bottom = 274.704
 custom_fonts/font = SubResource( 12 )
-text = "Sun can eat asteroids
+text = "Sun can eat asteroids.
 
 eating asteroids adds fuel to the heat
-guage
+gauge.
 
 players can use this fuel to shoot
 fireballs by touching anywhere on the
-screen
+screen.
 
 fireballs destroy asteroids on contact
 and award the player with bonus points."
@@ -444,13 +444,15 @@ __meta__ = {
 [node name="Flames" type="AnimatedSprite" parent="HowToUi/TabContainer/Sun"]
 position = Vector2( 421.667, 127.746 )
 scale = Vector2( 1.75814, 1.73316 )
-frames = SubResource( 18 )
+frames = SubResource( 17 )
+frame = 2
 playing = true
 
 [node name="SunMeter" type="AnimatedSprite" parent="HowToUi/TabContainer/Sun"]
 position = Vector2( 420, 133.38 )
 scale = Vector2( 0.874999, 0.730381 )
-frames = SubResource( 13 )
+frames = SubResource( 18 )
+frame = 9
 playing = true
 
 [node name="Close" type="TextureButton" parent="."]
