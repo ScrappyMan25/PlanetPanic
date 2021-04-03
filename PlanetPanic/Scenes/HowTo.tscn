@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://pixel-emulator-font/PixelEmulator-xq08.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Game_Assets/Power-Ups/Coins/ScreenWipeCoin.png" type="Texture" id=2]
@@ -16,6 +16,18 @@
 [ext_resource path="res://Assets/Game_Assets/BackButton.png" type="Texture" id=14]
 [ext_resource path="res://Scripts/HowTo.gd" type="Script" id=15]
 [ext_resource path="res://Assets/Game_Assets/UI/HowToBackground2png.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Game_Assets/SunMeter/0.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Game_Assets/SunMeter/2.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Game_Assets/SunMeter/3.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Game_Assets/SunMeter/4.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Game_Assets/SunMeter/5.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Game_Assets/SunMeter/7.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Game_Assets/SunMeter/8.png" type="Texture" id=23]
+[ext_resource path="res://Assets/Game_Assets/SunMeter/9.png" type="Texture" id=24]
+[ext_resource path="res://Assets/Game_Assets/SunMeter/6.png" type="Texture" id=25]
+[ext_resource path="res://Assets/Game_Assets/SunMeter/10.png" type="Texture" id=26]
+[ext_resource path="res://Assets/Game_Assets/SunMeter/1.png" type="Texture" id=27]
+[ext_resource path="res://Assets/Game_Assets/SunMeter/Heat-gauge-flames.png" type="Texture" id=28]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 10 )
@@ -40,19 +52,19 @@ size = 10
 extra_spacing_char = 1
 font_data = ExtResource( 1 )
 
-[sub_resource type="StyleBoxTexture" id=12]
+[sub_resource type="StyleBoxTexture" id=6]
 texture = ExtResource( 13 )
 region_rect = Rect2( 0, 0, 682, 384 )
 margin_left = 10.0
 margin_right = 10.0
 
-[sub_resource type="StyleBoxTexture" id=13]
+[sub_resource type="StyleBoxTexture" id=7]
 texture = ExtResource( 16 )
 region_rect = Rect2( 0, 0, 682, 384 )
 margin_left = 10.0
 margin_right = 10.0
 
-[sub_resource type="StyleBoxEmpty" id=14]
+[sub_resource type="StyleBoxEmpty" id=8]
 
 [sub_resource type="DynamicFont" id=9]
 font_data = ExtResource( 1 )
@@ -64,6 +76,46 @@ font_data = ExtResource( 1 )
 extra_spacing_top = 1
 extra_spacing_char = 1
 font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 12
+font_data = ExtResource( 1 )
+
+[sub_resource type="AtlasTexture" id=14]
+flags = 4
+atlas = ExtResource( 28 )
+region = Rect2( 0, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=15]
+flags = 4
+atlas = ExtResource( 28 )
+region = Rect2( 128, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=16]
+flags = 4
+atlas = ExtResource( 28 )
+region = Rect2( 0, 128, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=17]
+flags = 4
+atlas = ExtResource( 28 )
+region = Rect2( 128, 128, 128, 128 )
+
+[sub_resource type="SpriteFrames" id=18]
+animations = [ {
+"frames": [ SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=13]
+animations = [ {
+"frames": [ ExtResource( 17 ), ExtResource( 27 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 25 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 26 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [node name="HowTo" type="Control"]
 anchor_right = 1.0
@@ -115,17 +167,17 @@ margin_top = 30.0
 [node name="RichTextLabel" type="RichTextLabel" parent="HowToUi/TabContainer/Basics"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 6.66666
-margin_top = 15.0704
-margin_right = 14.6667
-margin_bottom = -6.3662
+margin_left = 7.0
+margin_top = 4.0
+margin_right = 15.0
+margin_bottom = -6.99997
 size_flags_horizontal = 4
 custom_fonts/normal_font = SubResource( 5 )
 text = "Move the planets across their orbit in order to avoid them being destroyed.
 
-If you have no remaining planets, the game will.
+If you have no remaining planets, the game will end.
 
-Ever time the sun eats an asteroid you get 10 points.
+Every time the sun eats an asteroid you get 10 points.
 
 The sun gains heat after eating an asteroid which can be spent to shoot fireballs to destroy asteroids for 50 points.
 
@@ -139,6 +191,7 @@ __meta__ = {
 }
 
 [node name="Interactables" type="Control" parent="HowToUi/TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 30.0
@@ -148,16 +201,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 4.0
 margin_bottom = 3.05176e-05
-custom_styles/tab_fg = SubResource( 12 )
-custom_styles/tab_bg = SubResource( 13 )
-custom_styles/panel = SubResource( 14 )
+custom_styles/tab_fg = SubResource( 6 )
+custom_styles/tab_bg = SubResource( 7 )
+custom_styles/panel = SubResource( 8 )
 custom_fonts/font = SubResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Global" type="Control" parent="HowToUi/TabContainer/Interactables/InteractableTabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 30.0
@@ -205,6 +257,7 @@ points earned for a duration
 align = 1
 
 [node name="Local" type="Control" parent="HowToUi/TabContainer/Interactables/InteractableTabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 30.0
@@ -363,20 +416,42 @@ text = "Shooting Star - Grants a wish
 align = 1
 
 [node name="Sun" type="Control" parent="HowToUi/TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 30.0
 
-[node name="TextureRect3" type="TextureRect" parent="HowToUi/TabContainer/Sun"]
-margin_left = 173.333
-margin_top = 65.7746
-margin_right = 237.333
-margin_bottom = 129.775
-texture = ExtResource( 3 )
+[node name="Label" type="Label" parent="HowToUi/TabContainer/Sun"]
+margin_left = 6.66666
+margin_top = 20.7041
+margin_right = 426.667
+margin_bottom = 274.704
+custom_fonts/font = SubResource( 12 )
+text = "Sun can eat asteroids
+
+eating asteroids adds fuel to the heat
+guage
+
+players can use this fuel to shoot
+fireballs by touching anywhere on the
+screen
+
+fireballs destroy asteroids on contact
+and award the player with bonus points."
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Flames" type="AnimatedSprite" parent="HowToUi/TabContainer/Sun"]
+position = Vector2( 421.667, 127.746 )
+scale = Vector2( 1.75814, 1.73316 )
+frames = SubResource( 18 )
+playing = true
+
+[node name="SunMeter" type="AnimatedSprite" parent="HowToUi/TabContainer/Sun"]
+position = Vector2( 420, 133.38 )
+scale = Vector2( 0.874999, 0.730381 )
+frames = SubResource( 13 )
+playing = true
 
 [node name="Close" type="TextureButton" parent="."]
 anchor_left = 0.435

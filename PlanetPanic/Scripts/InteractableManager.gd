@@ -13,6 +13,52 @@ var Interactables : Dictionary = {
 	"SpeedUpOrbit" : preload("res://Scenes/Interactables/SpeedUpOrbit.tscn")
 }
 
+var Key : Array = [
+	"Asteroid",
+	"Double_Points",
+	"Extra_Planet",
+	"Mini_Sun",
+	"Screen_Wipe",
+	"Shield",
+	"Wishing_Star",
+	"ReverseOrbit",
+	"SpeedDownOrbit",
+	"SpeedUpOrbit"
+]
+
+var Interactable_Bag : Array = [
+	1,
+	1,
+	1,
+	1,
+	1,
+	1,
+	2,
+	2,
+	2,
+	2,
+	2,
+	2,
+	5,
+	5,
+	5,
+	5,
+	5,
+	5,
+	7,
+	7,
+	7,
+	8,
+	8,
+	8,
+	9,
+	9,
+	9,
+	3,
+	4,
+	6
+]
+
 var Game_Scene : Node
 var SoundScene : Node
 
@@ -37,17 +83,12 @@ func spawn_Asteroid() -> void:
 	var a_location = Vector2(rand_range(-1,1), rand_range(-1,1)).normalized() * 600 * get_parent().get_node("Camera2D").zoom.x
 	var a_destination = position
 	newAsteroid._set_properties(a_speed, a_destination, a_location)
-#	if newAsteroid.name == "Wishing_Star":
-#		SoundScene.get_node("StarTwinkling").play()
-#		print("Sound")
-#		pass
 	add_child(newAsteroid, true)
 	pass
 
 func spawn_PowerUp() -> void:
 	#Randomise PowerUps
 	PowerUp_Keys.shuffle()
-	
 	var PowerUp = Interactables.get(PowerUp_Keys[0]).instance()
 	var a_speed = 150.0
 	var a_location = Vector2(rand_range(-1,1), rand_range(-1,1)).normalized() * 600 * get_parent().get_node("Camera2D").zoom.x
