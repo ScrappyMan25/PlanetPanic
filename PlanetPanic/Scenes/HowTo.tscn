@@ -159,7 +159,6 @@ __meta__ = {
 }
 
 [node name="Basics" type="Control" parent="HowToUi/TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 30.0
@@ -191,6 +190,7 @@ __meta__ = {
 }
 
 [node name="Interactables" type="Control" parent="HowToUi/TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 30.0
@@ -445,14 +445,14 @@ __meta__ = {
 position = Vector2( 421.667, 127.746 )
 scale = Vector2( 1.75814, 1.73316 )
 frames = SubResource( 17 )
-frame = 2
+frame = 3
 playing = true
 
 [node name="SunMeter" type="AnimatedSprite" parent="HowToUi/TabContainer/Sun"]
 position = Vector2( 420, 133.38 )
 scale = Vector2( 0.874999, 0.730381 )
 frames = SubResource( 18 )
-frame = 9
+frame = 4
 playing = true
 
 [node name="Close" type="TextureButton" parent="."]
